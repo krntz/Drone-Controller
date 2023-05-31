@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Drone</title>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mystyle.css') }}"> 
+  </head>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn2Container = document.getElementById('btn2-container');
+        var btn2s = btn2Container.getElementsByClassName('btn2');
+        for (var i = 0; i < btn2s.length; i++) {
+          btn2s[i].addEventListener('click', function() {
+            this.disabled = true;
+            this.style.display = 'none'; // Hide the button
+
+            if (this.value === 'take off') {
+        var landBtn = document.getElementById('landBtn');
+        landBtn.style.display = 'block'; // Show the 'land' button
+      }
+
+          });
+        }
+      });
+     
+    
+     var socket = new WebSocket('wss://' + location.host + '/action');
+	
+
+
+     socket.addEventListener('open', function (event) {
+	     console.log("[open] Connection established");
+     });
+
+
+
+
+     socket.addEventListener('message', function (event) {
+	     var data = JSON.parse(event.data);
+	     if (data.action == 'score') {
+		     document.getElementById('score').textContent = 'Score: ' + data.value;
+	     }
+     });
+     function sendText(button) {
+
+     var text = button.value; // Get the value of the button
+     socket.send(text); // Send the text to the server
+   }
+   </script>
+  <body>
+<div id="log"></div>
+    <br>
+
+    <div class="container">
+      <div class="button-container">
+      <h1>Drone Controller</h1>
+      <div class="score">
+        <h2 id="score">Score: 0</h2>
+        </div>
+      </div>
+      <div><button class="btn" value="forward" onclick="sendText(this)">Forward</button></div>
+      <div class="button-container">
+    <button class="btn" value="left" onclick="sendText(this)">Left</button>
+  <button class="btn" value="right" onclick="sendText(this)">Right</button>
+  </div>
+  <div>
+  <button class="btn" value="back" onclick="sendText(this)">Back</button>
+</div>
+  
+  <div class="button-container">
+    <button class="btn" value="down" onclick="sendText(this)">Down</button>
+    <button class="btn" value="up" onclick="sendText(this)">Up</button>
+    </div>
+
+</div>
+
+<div class="container">
+  <div class="button-container2" id="btn2-container">
+  <button class="btn2" value="take off" onclick="sendText(this)">Take off</button>
+  <button class="btn2" value="land" id="landBtn" onclick="sendText(this)">Land</button>
+</div>
+  
+
+
+     </body>
+    
+    
+</html>
