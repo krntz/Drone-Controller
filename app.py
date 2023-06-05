@@ -15,8 +15,10 @@ destinations = [[1.0, -0.5, 1.0], [0., 0.5, 1.0], [-0.5, 0., 1.0], [0., -0.5, 1.
 target_position = destinations[0]
 destination_index = 0
 #target_position = [1.5,-0.5,1.0]
-threshold = 0.5
+threshold = 0.6
 score = 60
+failing_instance = False
+failing_counter = 0
 
 def is_close_to_point():
     drone_position = cf.position()
@@ -50,10 +52,20 @@ def index():
 def echo(sock):
     global score
     global goal_reached
-    
+    log_file = "movements.log"  # File where movements will be logged
+    global failing_instance
     global threshold
+    global failing_counter
+    global destination_index
+    global target_position
     while True:
+        
         data = sock.receive()
+          # Log movement
+        with open(log_file, "a") as file:
+            file.write(f"{data}\n")
+        if destination_index == 0:
+            failing_instance = True
         if goal_reached:
             sock.send(json.dumps({'action':'goal', 'message':'You have finished your job, pilot :) Now you can fill out the survey' }))
             ### IMPLEMENT SURVEY REDIRECTION ###
@@ -69,7 +81,7 @@ def echo(sock):
         if is_close_to_point():
             print("Hoop completed!")
             score +=10
-            sock.send(json.dumps({'action':'score', 'value': score}))
+            sock.send(json.dumps({'action':'score', 'value': score}))           
             sock.send(json.dumps({'action':'goal', 'message':'You have reached the destination, please proceed with destination: '+str(destination_index) }))
             drone_position = cf.position()
             drone_position[0] = -(drone_position[0])
@@ -81,6 +93,29 @@ def echo(sock):
             timeHelper.sleep(2.0)
             cf.land(targetHeight=0.15,duration=2.0)
             continue
+        if failing_instance:
+            if failing_counter == 3 and destination_index < len(destinations)-1:
+                destination_index = destination_index + 1
+                target_position = destinations[destination_index]
+                sock.send(json.dumps({'action':'goal', 'message':'A failure has occurred. Please proceed to : '+str(destination_index) +' instead'}))
+
+                drone_position = cf.position()
+                drone_position[0] = -(drone_position[0])
+                drone_position[1] = -(drone_position[1])
+                drone_position[2] = 0
+    
+                print('...landing, please wait')
+                cf.goTo(drone_position,0.,0.,True)
+                timeHelper.sleep(2.0)
+                cf.land(targetHeight=0.15,duration=2.0)
+                failing_instance = not failing_instance
+                failing_counter = 0
+                continue
+            failing_counter=failing_counter+1
+
+        
+
+
 
         if data == 'back':
             print("Going back...")
@@ -92,9 +127,7 @@ def echo(sock):
             timeHelper.sleep(2.0)
         if data == 'right':
             print('Going right...')
-            print(target_position)
             cf.goTo([0.,-0.25,0],0.,0.,True)
-            timeHelper.sleep(2.0)
         if data == 'left':
             print("Going left..")
             cf.goTo([0.,0.25,0],0.,0.,True)
@@ -110,7 +143,6 @@ def echo(sock):
         if data =='take off':
             print('take off....')
             cf.takeoff(targetHeight=1.0,duration=2.5)
-            timeHelper.sleep(2.0)
         if data =='land':
             drone_position = cf.position()
             drone_position[0] = -(drone_position[0])
