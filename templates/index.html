@@ -28,12 +28,20 @@
        if (data.action == 'goal') {
              alert(data.message);
     }
+
+    if (data.action == 'select_location') {
+        // Ask the user for their choice
+        var choice = confirm("Next destination is checkpoint " + data.destination_name + ". Do you want to fly through the hard (small) or easy (big) loop?") ? "hard" : "easy";
+        // Send the user's choice back to the server
+        socket.send(JSON.stringify({ action: 'select_location_choice', choice: choice }));
+    }
+    
      });
      function sendText(button) {
-
-     var text = button.value; // Get the value of the button
-     socket.send(text); // Send the text to the server
-   }
+      var text = button.value; // Get the value of the button
+      var message = JSON.stringify({ action: text }); // Convert to JSON
+      socket.send(message); // Send the text to the server
+    }
    </script>
   <body>
 <div id="log"></div>
