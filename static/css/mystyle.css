@@ -87,3 +87,45 @@ background-attachment: fixed;
 color:#F3F4F5;
 font-family: 'Public Sans Thin 100';
 }
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    text-align: center;
+    color: black;
+  }
+  
+  .choice-btn {
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .choice-btn[value="easy"] {
+    background-color: #4CAF50;
+  }
+  
+  .choice-btn[value="hard"] {
+    background-color: #f44336;
+  }

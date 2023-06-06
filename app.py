@@ -16,7 +16,7 @@ goal_reached = False
 
 # Destinations have a name, easy_location, hard_location
 destinations = [
-    Destination("A", [1.0, -0.5, 1.0], [1.5, -0.7, 1.2]),
+    Destination("A", [1.0, -0.5, 1.0], [1.0, -0.4, 1.0]),
     Destination("B", [0., 0.5, 1.0], [0.2, 0.6, 1.3]),
     Destination("C", [-0.5, 0., 1.0], [-0.7, 0.1, 1.4]),
     Destination("D", [0., -0.5, 1.0], [0.1, -0.6, 1.5])
@@ -24,7 +24,7 @@ destinations = [
 
 target_position = destinations[0].easy_location
 destination_index = 0
-threshold = 0.6
+threshold = 0.5
 score = 60
 failing_instance = False
 failing_counter = 0
@@ -42,6 +42,7 @@ def is_close_to_point():
     dz = drone_position[2] - target_position[2]
 
     distance = math.sqrt(dx**2+dy**2+dz**2)
+    print('drone_position :'+ str(drone_position))
     print('threshold: '+ str(threshold))
     print('target_position: '+ str(target_position))
     print('distance ' + str(distance))
@@ -101,8 +102,8 @@ def echo(sock):
             ##### Log movement####################################################3333
         with open(log_file, "a") as file:
             file.write(f"{data}\n")
-        if destination_index == 0:
-            failing_instance = False
+        if destination_index == 2:
+            failing_instance = True
         
         #################### FAILING MECHANISM ###########################################################################################################3
         if failing_instance:
@@ -145,7 +146,8 @@ def echo(sock):
                 cf.goTo(drone_position,0.,0.,True)
                 timeHelper.sleep(2.0)
                 cf.land(targetHeight=0.15,duration=2.0)
-                break        
+                break       
+            sock.send(json.dumps({'action':'goal', 'message':'Well done, you finished the checkpoint! Continue with checkpoint '+destinations[destination_index].name}))
             sock.send(json.dumps({
                     'action': 'select_location',
                     'destination_index': destination_index,
