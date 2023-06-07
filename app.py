@@ -50,8 +50,12 @@ def is_close_to_point():
     if threshold >= distance:
         if target_position == destinations[destination_index].hard_location:
             score+=10
+            with open("movements.log", "a") as file:
+                file.write("score 10\n")
         if target_position == destinations[destination_index].easy_location:
             score+=5
+            with open("movements.log", "a") as file:
+                file.write("score 5\n")
         if len(destinations)-1 == destination_index:
             goal_reached = True
         elif destination_index < len(destinations) - 1:
@@ -102,6 +106,9 @@ def echo(sock):
             ##### Log movement####################################################3333
         with open(log_file, "a") as file:
             file.write(f"{data}\n")
+
+        # Set the failing checkpoint, failing trial is always the first in experimental block. Which means that the number can always be either 0 or 2. 
+        # Can be randomized with the help of random.org.
         if destination_index == 2:
             failing_instance = True
         
@@ -115,6 +122,8 @@ def echo(sock):
                 drone_position[0] = -(drone_position[0])
                 drone_position[1] = -(drone_position[1])
                 drone_position[2] = 0
+                with open(log_file, "a") as file:
+                    file.write("FAILURE\n")
     
                 print('...landing, please wait')
                 cf.goTo(drone_position,0.,0.,True)
