@@ -24,7 +24,7 @@ destinations = [
 
 target_position = destinations[0].easy_location
 destination_index = 0
-threshold = 0.5
+threshold = 0.2
 score = 0
 failing_instance = False
 failing_counter = 0
@@ -143,7 +143,7 @@ def echo(sock):
             failing_counter=failing_counter+1
         
         ############## CHECK IF GOAL IS REACHED ########################################################################################3
-        if is_close_to_point:
+        if is_close_to_point():
             print("Hoop completed!")
             sock.send(json.dumps({'action':'score', 'value': score}))   
             if goal_reached:
@@ -158,12 +158,6 @@ def echo(sock):
                 timeHelper.sleep(2.0)
                 cf.land(targetHeight=0.15,duration=2.0)
                 break
-
-
-
-          
-
-            
             if destination_index == 2:
                 sock.send(json.dumps({'action':'goal', 'message':'You have completed the second checkpoint. You can now do the first part of the <a href="https://link_to_your_survey.com"  target="_blank">survey</a>.'}))
             else:
