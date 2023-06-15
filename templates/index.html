@@ -6,18 +6,12 @@
   </head>
   
   <script>
-    
-    
      var socket = new WebSocket('ws://' + location.host + '/action');
-	
-
+     var difficulty = 'Not set';
 
      socket.addEventListener('open', function (event) {
 	     console.log("[open] Connection established");
      });
-
-
-
 
      socket.addEventListener('message', function (event) {
 	     var data = JSON.parse(event.data);
@@ -26,8 +20,9 @@
 	     }
 
        if (data.action == 'goal') {
-             alert(data.message);
-    }
+        document.getElementById('alertText').innerHTML = data.message;
+        document.getElementById('customAlert').style.display = 'block';
+      }
 
     if (data.action == 'select_location') {
   // Show the modal
@@ -46,6 +41,13 @@
       var choice = e.target.value;
       socket.send(JSON.stringify({ action: 'select_location_choice', choice: choice }));
 
+    // Store the hexagoncolor
+    hexagon_color = choice == 'easy' ? 'green' : 'red';
+
+// Update the difficulty display
+    document.getElementById('difficultyDisplay').textContent = "You have chosen the " + hexagon_color+ " hexagon for checkpoint "+data.destination_name;
+
+
       // Hide the modal
       modal.style.display = "none";
     }
@@ -58,7 +60,21 @@
       var text = button.value; // Get the value of the button
       var message = JSON.stringify({ action: text }); // Convert to JSON
       socket.send(message); // Send the text to the server
-    }
+      // Get all buttons
+      var buttons = document.querySelectorAll("button");
+
+      // Add a 'hide' class to all buttons
+      buttons.forEach(function(btn) {
+        btn.classList.add("hide");
+      });
+
+      // Remove the 'hide' class after 1 second
+      setTimeout(function() {
+        buttons.forEach(function(btn) {
+          btn.classList.remove("hide");
+        });
+      }, 1000);
+          }
    </script>
   <body>
 <div id="log"></div>
@@ -68,7 +84,8 @@
       <div class="button-container">
       <h1>Drone Controller</h1>
       <div class="score">
-        <h2 id="score">60 KR</h2>
+        <h2 id="score">0 KR</h2>
+       
         </div>
       </div>
       <div><button class="btn" value="forward" onclick="sendText(this)">Forward</button></div>
@@ -80,17 +97,15 @@
   <button class="btn" value="back" onclick="sendText(this)">Back</button>
 </div>
   
-  <div class="button-container">
-    <button class="btn" value="down" onclick="sendText(this)">Down</button>
-    <button class="btn" value="up" onclick="sendText(this)">Up</button>
-    </div>
+ 
 
 </div>
 
 <div class="container">
   <div class="button-container2" id="btn2-container">
-  <button class="btn2" value="take off" onclick="sendText(this)">Take off</button>
+  <button class="btnTO" value="take off" onclick="sendText(this)">Take off</button>
   <button class="btn2" value="land" id="landBtn" onclick="sendText(this)">Land</button>
+  <span id="difficultyDisplay">Difficulty not set</span>
 </div>
 
 <div id="myModal" class="modal">
@@ -101,6 +116,19 @@
     <button class="choice-btn" value="hard">Hard</button>
   </div>
 </div>
+
+  <!-- The custom alert box -->
+  <div id="customAlert" class="custom-alert">
+   
+    <div class="custom-alert-content">
+      <p id="alertText"></p>
+      <button onclick="document.getElementById('customAlert').style.display='none'">OK</button>
+    </div>
+    
+  </div>
+
+
+
 
   
 

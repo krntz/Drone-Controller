@@ -57,6 +57,8 @@ h1 {
     font-family: 'Public Sans Thin 100' !important;
     border-radius: 12px;
 }
+
+
 .btn:active {
     border: solid #0099ff;
 }
@@ -74,7 +76,18 @@ h1 {
     width: 30%; /* adjust as needed */
 }
 
-
+.btnTO {
+  background-color: #00cba9;
+  color:white;
+  border: none;
+  padding: 30px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  font-family: 'Public Sans Thin 100' !important;
+  border-radius: 12px;
+}  
 
 
 body {
@@ -129,3 +142,46 @@ font-family: 'Public Sans Thin 100';
   .choice-btn[value="hard"] {
     background-color: #f44336;
   }
+
+  /* Styles for the custom alert box */
+.custom-alert {
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+
+  .custom-alert-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    color: black;
+    font-size: 20px; /* Increase the font size */
+    padding: 10px 20px; /* Increase the padding */
+  }
+
+  .custom-alert-content button {
+    font-size: 20px; /* Increase the font size */
+    padding: 10px 20px; /* Increase the padding */
+  }
+
+  #difficultyDisplay {
+    font-size: 24px;   /* Increase the font size */
+    font-weight: bold; /* Make the text bold */
+    color: white;       /* Set the text color. Change as needed. */
+    margin-top: 20px;  /* Add some space above the difficulty display */
+    text-align: center; /* Center align the text */
+    opacity: 0.6;
+}
+
+.hide {
+  display: none;
+}
