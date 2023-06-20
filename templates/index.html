@@ -19,9 +19,24 @@
 		     document.getElementById('score').textContent = + data.value + " KR";
 	     }
 
+       if (data.action == 'finish') {
+        document.getElementById('surveyText').innerHTML = data.message;
+            document.getElementById('surveyModal').style.display = 'block';
+
+       }
+
        if (data.action == 'goal') {
-        document.getElementById('alertText').innerHTML = data.message;
-        document.getElementById('customAlert').style.display = 'block';
+        if(data.message.includes("http")){
+            // Display the survey modal instead of the custom alert
+            document.getElementById('surveyText').innerHTML = data.message;
+            document.getElementById('surveyModal').style.display = 'block';
+        } else {
+            document.getElementById('alertText').innerHTML = data.message;
+            document.getElementById('customAlert').style.display = 'block';
+            setTimeout(function () {
+            customAlert.style.display = 'none';
+          }, 6000);
+        }
       }
 
     if (data.action == 'select_location') {
@@ -73,7 +88,7 @@
         buttons.forEach(function(btn) {
           btn.classList.remove("hide");
         });
-      }, 1000);
+      }, 2000);
           }
    </script>
   <body>
@@ -101,17 +116,20 @@
 
 </div>
 
+<div class="container"><span id="difficultyDisplay">Difficulty not set</span></div>
+
 <div class="container">
   <div class="button-container2" id="btn2-container">
   <button class="btnTO" value="take off" onclick="sendText(this)">Take off</button>
   <button class="btn2" value="land" id="landBtn" onclick="sendText(this)">Land</button>
-  <span id="difficultyDisplay">Difficulty not set</span>
+  
+</div>
 </div>
 
 <div id="myModal" class="modal">
   <div class="modal-content">
     <h2 id="checkpoint"></h2>
-    <p>Do you want to fly through the hard (small) or easy (big) loop?</p>
+    <p>Do you want to fly above the easy (big) or hard (small) hexagon?</p>
     <button class="choice-btn" value="easy">Easy</button>
     <button class="choice-btn" value="hard">Hard</button>
   </div>
@@ -122,10 +140,18 @@
    
     <div class="custom-alert-content">
       <p id="alertText"></p>
-      <button onclick="document.getElementById('customAlert').style.display='none'">OK</button>
     </div>
     
   </div>
+
+ 
+
+  <!-- The survey alert box -->
+<div id="surveyModal" class="modal">
+  <div class="modal-content">
+      <p id="surveyText"></p>
+  </div>
+</div>
 
 
 

@@ -16,15 +16,15 @@ goal_reached = False
 
 # Destinations have a name, easy_location, hard_location
 destinations = [
-    Destination("A", [1.5, 0.4, 1.], [2.0, -0.5 , 1. ]),
-    Destination("B", [-0.25, 1., 1.], [0.5, 1.25, 1.]),
-    Destination("C", [-1.0, -0.25, 1.], [-1.5, 0.5, 1.]),
-    Destination("D", [0.25, -1.0, 1.], [1., -0.75, 1.])
+    Destination("A", [0.6, 0.3, .5], [0.6, -0.3 , .5]),
+    Destination("B", [-0.3, 0.6, .5], [0.3, 0.6, .5]),
+    Destination("C", [-0.6, -0.3, .5], [-0.6, 0.3, .5]),
+    Destination("D", [-0.3, -0.6, .5], [0.3, -0.6, .5])
 ]
 
 target_position = destinations[0].easy_location
 destination_index = 0
-threshold = 0.2
+threshold = 0.25
 score = 0
 failing_instance = False
 failing_counter = 0
@@ -111,15 +111,15 @@ def echo(sock):
 
         # Set the failing checkpoint, failing trial is always the first in experimental block. Which means that the number can always be either 0 or 2. 
         # Can be randomized with the help of random.org.
-        if destination_index == 0:
+        if destination_index == 2:
             failing_instance = True
-        
+        if destination_index == 3:
+            threshold = 0.35
         #################### FAILING MECHANISM ###########################################################################################################3
         if failing_instance:
             if failing_counter == 3:
                 destination_index = destination_index + 1
-                target_position = destinations[destination_index].easy_location
-                sock.send(json.dumps({'action':'goal', 'message':'A collision has been detected. Please proceed to checkpoint '+str(destinations[destination_index].name) +' instead'}))
+                sock.send(json.dumps({'action':'goal', 'message':'The drone has detected a collision. Please proceed to checkpoint '+str(destinations[destination_index].name) +' instead'}))
                 drone_position = cf.position()
                 drone_position[0] = -(drone_position[0])
                 drone_position[1] = -(drone_position[1])
@@ -130,7 +130,7 @@ def echo(sock):
                 print('...landing, please wait')
                 cf.goTo(drone_position,0.,0.,True)
                 timeHelper.sleep(2.0)
-                cf.land(targetHeight=0.15,duration=2.0)
+                cf.land(targetHeight=0.05,duration=2.0)
                 failing_instance = not failing_instance
                 failing_counter = 0
                 sock.send(json.dumps({
@@ -147,8 +147,7 @@ def echo(sock):
             print("Hoop completed!")
             sock.send(json.dumps({'action':'score', 'value': score}))   
             if goal_reached:
-                sock.send(json.dumps({'action':'goal', 'message':'You have finished your job, pilot :) You have earned '+ str(score)+' KR. And now, you can fill out the second and last part of the  <a href="https://link_to_your_survey.com"  target="_blank">survey</a>.' }))
-                ### IMPLEMENT SURVEY REDIRECTION ###
+                sock.send(json.dumps({'action':'finish', 'message':'You have finished your job, pilot. You have earned an additional amount of '+ str(score)+' KR. And now, you can fill out the rest of the survey.' }))
                 drone_position = cf.position()
                 drone_position[0] = -(drone_position[0])
                 drone_position[1] = -(drone_position[1])
@@ -156,17 +155,14 @@ def echo(sock):
                 print('...landing, please wait')
                 cf.goTo(drone_position,0.,0.,True)
                 timeHelper.sleep(2.0)
-                cf.land(targetHeight=0.15,duration=2.0)
+                cf.land(targetHeight=0.05,duration=2.0)
                 break
             if destination_index == 2:
-                sock.send(json.dumps({'action':'goal', 'message':'You have completed the second checkpoint. You can now do the first part of the <a href="https://link_to_your_survey.com"  target="_blank">survey</a>.'}))
+                sock.send(json.dumps({'action':'goal', 'message':'You have completed the second checkpoint. You can now do the first part of the <a href="https://link_to_your_survey.com" onclick="document.getElementById(\'surveyModal\').style.display=\'none\'"    target="_blank">survey</a>. When you are done with the first part of the survey, come back to this interface and continue with the next checkpoint.'}))
+                
             else:
                 sock.send(json.dumps({'action':'goal', 'message':'Well done, you finished the checkpoint! Continue with checkpoint '+destinations[destination_index].name}))
-                sock.send(json.dumps({
-                    'action': 'select_location',
-                    'destination_index': destination_index,
-                    'destination_name': destinations[destination_index].name
-                }))
+                
             drone_position = cf.position()
             drone_position[0] = -(drone_position[0])
             drone_position[1] = -(drone_position[1])
@@ -175,7 +171,12 @@ def echo(sock):
             print('...landing, please wait')
             cf.goTo(drone_position,0.,0.,True)
             timeHelper.sleep(2.0)
-            cf.land(targetHeight=0.15,duration=2.0)
+            cf.land(targetHeight=0.05,duration=2.0)
+            sock.send(json.dumps({
+                    'action': 'select_location',
+                    'destination_index': destination_index,
+                    'destination_name': destinations[destination_index].name
+                }))
             continue
 
 
@@ -184,18 +185,18 @@ def echo(sock):
 ####################### DRONE CONTROLS"################################################################################3
         if action == 'back':
             print("Going back...")
-            cf.goTo([-0.25,0,0],0.,0.,True)
+            cf.goTo([-0.10,0,0],0.,0.,True)
             timeHelper.sleep(2.0)
         if action == 'forward':
             print("going forward...")
-            cf.goTo([0.25,0,0],0.,0.,True)
+            cf.goTo([0.10,0,0],0.,0.,True)
             timeHelper.sleep(2.0)
         if action == 'right':
             print('Going right...')
-            cf.goTo([0.,-0.25,0],0.,0.,True)
+            cf.goTo([0.,-0.10,0],0.,0.,True)
         if action == 'left':
             print("Going left..")
-            cf.goTo([0.,0.25,0],0.,0.,True)
+            cf.goTo([0.,0.10,0],0.,0.,True)
             timeHelper.sleep(2.0)
         if action =='down':
             cf.goTo([0.,0.,-0.12],0.,0.,True)
@@ -207,7 +208,7 @@ def echo(sock):
             print("Going up")
         if action =='take off':
             print('take off....')
-            cf.takeoff(targetHeight=1.,duration=2.5)
+            cf.takeoff(targetHeight=0.5,duration=2.5)
         if action =='land':
             drone_position = cf.position()
             drone_position[0] = -(drone_position[0])

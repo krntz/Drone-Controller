@@ -6,25 +6,10 @@
 }
 
 h1 {
-    font-size:40px;
+    font-size:70px;
 }
 
-#score {
-    text-align: center;
-    background-color:dimgray;
-    color:#F3F4F5;
-    border: none;
-    text-align: start;
-    text-decoration: none;
-    display: inline-block;
-    padding: 20px;
-    font-size: 30px;
-    font-family: 'Public Sans Thin 100' !important;
-    border: solid black;
-    border-radius:10px;
-    max-height: 35px;
-    opacity:0.8;
-}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -37,25 +22,26 @@ h1 {
     background-color: #F3F4F5;
     color:black;
     border: none;
-    padding: 15px 32px;
+    padding: 20px 35px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
     font-family: 'Public Sans Thin 100' !important;
     border-radius: 12px;
+    font-size: 50px;
 }
 .btn2 {
     background-color: #00cba9;
     color:white;
     border: none;
-    padding: 8px 16px;
+    padding: 20px 35px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
     font-family: 'Public Sans Thin 100' !important;
     border-radius: 12px;
+    font-size: 50px;
+
 }
 
 
@@ -69,24 +55,25 @@ h1 {
     width: 50%; /* adjust as needed */
 }
 .button-container2 {
-    margin-top: 160px;
+    margin-top: 120px;
     display: flex;
     justify-content: center; /* or space-between, center, etc. */
     gap:20px;
-    width: 30%; /* adjust as needed */
+    width: 40%; /* adjust as needed */
 }
 
 .btnTO {
   background-color: #00cba9;
   color:white;
   border: none;
-  padding: 30px 25px;
+  padding: 35px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 25px;
+  font-size: 50px;
   font-family: 'Public Sans Thin 100' !important;
   border-radius: 12px;
+
 }  
 
 
@@ -99,6 +86,8 @@ background-repeat: no-repeat;
 background-attachment: fixed;
 color:#F3F4F5;
 font-family: 'Public Sans Thin 100';
+font-size: 40px;
+
 }
 
 .modal {
@@ -121,6 +110,7 @@ font-family: 'Public Sans Thin 100';
     width: 30%;
     text-align: center;
     color: black;
+    font-size: x-large;
   }
   
   .choice-btn {
@@ -129,7 +119,7 @@ font-family: 'Public Sans Thin 100';
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 30px;
     margin: 4px 2px;
     cursor: pointer;
     border: none;
@@ -155,6 +145,7 @@ font-family: 'Public Sans Thin 100';
     overflow: auto; 
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
+    
   }
 
   .custom-alert-content {
@@ -164,24 +155,45 @@ font-family: 'Public Sans Thin 100';
     border: 1px solid #888;
     width: 30%;
     color: black;
-    font-size: 20px; /* Increase the font size */
     padding: 10px 20px; /* Increase the padding */
   }
 
   .custom-alert-content button {
-    font-size: 20px; /* Increase the font size */
+    
     padding: 10px 20px; /* Increase the padding */
   }
 
   #difficultyDisplay {
-    font-size: 24px;   /* Increase the font size */
+    font-size: 35px;   /* Increase the font size */
     font-weight: bold; /* Make the text bold */
     color: white;       /* Set the text color. Change as needed. */
     margin-top: 20px;  /* Add some space above the difficulty display */
     text-align: center; /* Center align the text */
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .hide {
   display: none;
+}
+
+.score {
+  text-align: center;
+  background-color:dimgray;
+  color:#F3F4F5;
+  border: none;
+  text-align: start;
+  text-decoration: none;
+  padding: 25px;
+  font-family: 'Public Sans Thin 100' !important;
+  border: solid black;
+  border-radius:10px;
+  opacity:0.8;
+  width:30%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+}
+
+#score {
+  font-size: 30px;
 }
