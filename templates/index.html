@@ -15,6 +15,25 @@
 
      socket.addEventListener('message', function (event) {
 	     var data = JSON.parse(event.data);
+       if (data.action == 'default') {
+       
+
+       // Store the hexagoncolor
+       hexagon_color = 'blue';
+
+
+   // Update the difficulty display
+       document.getElementById('difficultyDisplay').textContent = "Next destination is " + hexagon_color+ " hexagon at checkpoint "+data.destination_name;
+
+
+    }
+
+
+
+
+
+
+
 	     if (data.action == 'score') {
 		     document.getElementById('score').textContent = + data.value + " KR";
 	     }
@@ -35,7 +54,7 @@
             document.getElementById('customAlert').style.display = 'block';
             setTimeout(function () {
             customAlert.style.display = 'none';
-          }, 6000);
+          }, 7000);
         }
       }
 
