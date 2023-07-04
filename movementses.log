@@ -1,0 +1,719 @@
+{'action': 'take off'}
+Elapsed time since last action: 10.21 seconds
+{'action': 'forward'}
+Elapsed time since last action: 8.02 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.79 seconds
+{'action': 'forward'}
+FAILURE
+Elapsed time: 21.78 seconds
+{'action': 'take off'}
+Elapsed time since last action: 8.39 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.01 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.85 seconds
+{'action': 'left'}
+FAILURE
+Elapsed time: 17.08 seconds
+{'action': 'take off'}
+Elapsed time since last action: 8.84 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.24 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.78 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.81 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.81 seconds
+{'action': 'left'}
+default score 10
+Elapsed time: 26.92 seconds
+{'action': 'take off'}
+Elapsed time since last action: 17.03 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.44 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.91 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.49 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.47 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.13 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.17 seconds
+{'action': 'left'}
+score 10
+Elapsed time: 33.58 seconds
+{'action': 'take off'}
+Elapsed time since last action: 13.76 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.21 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.92 seconds
+{'action': 'back'}
+FAILURE
+Elapsed time: 19.34 seconds
+{'action': 'take off'}
+Elapsed time since last action: 21.06 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.06 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.01 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.86 seconds
+{'action': 'right'}
+score 10
+Elapsed time: 31.97 seconds
+{'action': 'take off'}
+Elapsed time since last action: 8.68 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.90 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.98 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.84 seconds
+{'action': 'forward'}
+default score 10
+Elapsed time: 22.98 seconds
+{'action': 'take off'}
+Elapsed time since last action: 13.08 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.75 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.30 seconds
+{'action': 'left'}
+Elapsed time since last action: 4.19 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.58 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.77 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.87 seconds
+{'action': 'left'}
+score 10
+Elapsed time: 31.54 seconds
+{'action': 'take off'}
+Elapsed time since last action: 10.16 seconds
+{'action': 'back'}
+Elapsed time since last action: 7.88 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.14 seconds
+{'action': 'left'}
+FAILURE
+Elapsed time: 18.13 seconds
+{'action': 'take off'}
+Elapsed time since last action: 16.50 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.19 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.21 seconds
+{'action': 'forward'}
+Elapsed time since last action: 8.30 seconds
+{'action': 'right'}
+score 10
+Elapsed time: 29.35 seconds
+{'action': 'take off'}
+Elapsed time since last action: 9.94 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.82 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.82 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.93 seconds
+{'action': 'left'}
+default score 10
+Elapsed time: 25.04 seconds
+{'action': 'take off'}
+Elapsed time since last action: 15.08 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.02 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.13 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.82 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.98 seconds
+{'action': 'back'}
+score 5
+Elapsed time: 28.26 seconds
+{'action': 'take off'}
+Elapsed time since last action: 9.72 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.15 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.21 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.73 seconds
+{'action': 'right'}
+default score 10
+Elapsed time: 19.81 seconds
+{'action': 'take off'}
+Elapsed time since last action: 10.91 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.02 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.79 seconds
+{'action': 'right'}
+score 10
+Elapsed time: 17.40 seconds
+{'action': 'take off'}
+Elapsed time since last action: 10.89 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.96 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.74 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.78 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.93 seconds
+{'action': 'left'}
+default score 10
+Elapsed time: 27.77 seconds
+{'action': 'take off'}
+Elapsed time since last action: 15.78 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.10 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.78 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.99 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.87 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.46 seconds
+{'action': 'forward'}
+score 10
+Elapsed time: 29.34 seconds
+{'action': 'take off'}
+Elapsed time since last action: 8.22 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.98 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.83 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.07 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.86 seconds
+{'action': 'left'}
+default score 10
+Elapsed time: 23.32 seconds
+{'action': 'take off'}
+Elapsed time since last action: 12.28 seconds
+{'action': 'left'}
+Elapsed time since last action: 4.94 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.88 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.16 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.91 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.71 seconds
+{'action': 'left'}
+score 10
+Elapsed time: 27.34 seconds
+{'action': 'take off'}
+Elapsed time since last action: 9.45 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.95 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.98 seconds
+{'action': 'back'}
+default score 10
+Elapsed time: 17.49 seconds
+{'action': 'take off'}
+Elapsed time since last action: 14.20 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.99 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.02 seconds
+{'action': 'right'}
+score 10
+Elapsed time: 18.12 seconds
+{'action': 'take off'}
+Elapsed time since last action: 8.03 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.94 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.77 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.87 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.76 seconds
+{'action': 'forward'}
+default score 10
+Elapsed time: 22.16 seconds
+{'action': 'take off'}
+Elapsed time since last action: 17.18 seconds
+{'action': 'left'}
+Elapsed time since last action: 4.87 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.87 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.37 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.75 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.82 seconds
+{'action': 'left'}
+score 5
+Elapsed time: 33.22 seconds
+{'action': 'take off'}
+Elapsed time since last action: 8.86 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.81 seconds
+{'action': 'right'}
+Elapsed time since last action: 1.80 seconds
+{'action': 'back'}
+FAILURE
+Elapsed time: 14.95 seconds
+{'action': 'take off'}
+Elapsed time since last action: 14.98 seconds
+{'action': 'right'}
+Elapsed time since last action: 5.28 seconds
+{'action': 'right'}
+Elapsed time since last action: 1.31 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.90 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.98 seconds
+{'action': 'right'}
+score 10
+Elapsed time: 25.42 seconds
+{'action': 'take off'}
+Elapsed time since last action: 8.41 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.57 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.17 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.90 seconds
+{'action': 'right'}
+Elapsed time since last action: 6.88 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.81 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.84 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.99 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.84 seconds
+{'action': 'right'}
+default score 10
+Elapsed time: 39.45 seconds
+{'action': 'take off'}
+Elapsed time since last action: 19.00 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.14 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.04 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.76 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.38 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.18 seconds
+{'action': 'forward'}
+score 10
+Elapsed time: 30.16 seconds
+{'action': 'take off'}
+Elapsed time since last action: 15.56 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.81 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.85 seconds
+{'action': 'back'}
+FAILURE
+Elapsed time: 22.18 seconds
+{'action': 'take off'}
+Elapsed time since last action: 12.11 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.19 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.85 seconds
+{'action': 'left'}
+score 5
+Elapsed time: 18.36 seconds
+{'action': 'take off'}
+Elapsed time since last action: 36.23 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.77 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.92 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.09 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.98 seconds
+{'action': 'forward'}
+default score 10
+Elapsed time: 51.98 seconds
+{'action': 'take off'}
+Elapsed time since last action: 15.35 seconds
+{'action': 'left'}
+Elapsed time since last action: 6.78 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.68 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.13 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.07 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.99 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.95 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.11 seconds
+{'action': 'forward'}
+score 10
+Elapsed time: 37.90 seconds
+{'action': 'take off'}
+Elapsed time since last action: 10.46 seconds
+{'action': 'right'}
+Elapsed time since last action: 7.09 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.05 seconds
+{'action': 'right'}
+FAILURE
+Elapsed time: 20.74 seconds
+{'action': 'take off'}
+Elapsed time since last action: 26.34 seconds
+{'action': 'back'}
+Elapsed time since last action: 6.68 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.12 seconds
+{'action': 'left'}
+score 5
+Elapsed time: 35.15 seconds
+{'action': 'take off'}
+Elapsed time since last action: 9.00 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.10 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.88 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.97 seconds
+{'action': 'left'}
+Elapsed time since last action: 4.84 seconds
+{'action': 'left'}
+default score 10
+Elapsed time: 24.80 seconds
+{'action': 'take off'}
+Elapsed time since last action: 17.07 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.13 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.85 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.84 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.76 seconds
+{'action': 'right'}
+score 5
+Elapsed time: 24.40 seconds
+{'action': 'take off'}
+Elapsed time since last action: 71.45 seconds
+{'action': 'left'}
+Elapsed time since last action: 6.51 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.94 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.85 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.96 seconds
+{'action': 'left'}
+default score 10
+Elapsed time: 87.64 seconds
+{'action': 'take off'}
+Elapsed time since last action: 35.07 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.08 seconds
+{'action': 'right'}
+Elapsed time since last action: 6.14 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.84 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.93 seconds
+{'action': 'left'}
+Elapsed time since last action: 4.65 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.89 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.43 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.23 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.25 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.93 seconds
+{'action': 'left'}
+Elapsed time since last action: 8.43 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.32 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.45 seconds
+{'action': 'back'}
+Elapsed time since last action: 15.93 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.89 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.87 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.09 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.29 seconds
+{'action': 'left'}
+Elapsed time since last action: 7.10 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.02 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.30 seconds
+{'action': 'take off'}
+Elapsed time since last action: 2.79 seconds
+{'action': 'right'}
+Elapsed time since last action: 5.51 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.86 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.89 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.78 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.85 seconds
+{'action': 'right'}
+score 5
+Elapsed time: 138.77 seconds
+{'action': 'take off'}
+Elapsed time since last action: 16.86 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.35 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.82 seconds
+{'action': 'forward'}
+FAILURE
+Elapsed time: 17.98 seconds
+{'action': 'take off'}
+Elapsed time since last action: 23.77 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.92 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.01 seconds
+{'action': 'back'}
+score 5
+Elapsed time: 31.47 seconds
+{'action': 'take off'}
+Elapsed time since last action: 42.95 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.93 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.29 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.81 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.78 seconds
+{'action': 'forward'}
+default score 10
+Elapsed time: 57.77 seconds
+{'action': 'take off'}
+Elapsed time since last action: 27.20 seconds
+{'action': 'back'}
+Elapsed time since last action: 7.95 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.90 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.51 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.91 seconds
+{'action': 'forward'}
+Elapsed time since last action: 7.86 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.87 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.13 seconds
+{'action': 'left'}
+Elapsed time since last action: 4.89 seconds
+{'action': 'right'}
+Elapsed time since last action: 7.23 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.01 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.67 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.88 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.28 seconds
+{'action': 'back'}
+Elapsed time since last action: 6.94 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.02 seconds
+{'action': 'forward'}
+Elapsed time since last action: 6.95 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.79 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.77 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.72 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.75 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.71 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.85 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.81 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.09 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.84 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.75 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.77 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.85 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.19 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.89 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.08 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.86 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.75 seconds
+{'action': 'back'}
+score 10
+Elapsed time: 141.97 seconds
+{'action': 'take off'}
+Elapsed time since last action: 28.21 seconds
+{'action': 'left'}
+Elapsed time since last action: 7.08 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.88 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.12 seconds
+{'action': 'left'}
+default score 10
+Elapsed time: 34.37 seconds
+{'action': 'take off'}
+Elapsed time since last action: 16.74 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.97 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.30 seconds
+{'action': 'left'}
+score 10
+Elapsed time: 19.59 seconds
+{'action': 'left'}
+{'action': 'take off'}
+Elapsed time since last action: 37.64 seconds
+{'action': 'take off'}
+Elapsed time since last action: 13.79 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.98 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.32 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.60 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.47 seconds
+{'action': 'forward'}
+default score 10
+Elapsed time: 32.99 seconds
+{'action': 'take off'}
+Elapsed time since last action: 21.66 seconds
+{'action': 'left'}
+Elapsed time since last action: 7.13 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.16 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.98 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.84 seconds
+{'action': 'forward'}
+score 10
+Elapsed time: 32.21 seconds
+{'action': 'take off'}
+Elapsed time since last action: 15.85 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.14 seconds
+{'action': 'right'}
+Elapsed time since last action: 1.18 seconds
+{'action': 'right'}
+FAILURE
+Elapsed time: 15.49 seconds
+{'action': 'take off'}
+Elapsed time since last action: 12.82 seconds
+{'action': 'forward'}
+Elapsed time since last action: 6.28 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.48 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.26 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.24 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.02 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.74 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.02 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.83 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.81 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.75 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.83 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.70 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.77 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.76 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.73 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.86 seconds
+{'action': 'back'}
+default score 10
+Elapsed time: 79.27 seconds
+{'action': 'back'}
+Elapsed time since last action: 14.81 seconds
+{'action': 'right'}
+Elapsed time since last action: 13.23 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.59 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.76 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.19 seconds
+{'action': 'forward'}
+score 10
+Elapsed time: 32.62 seconds
+{'action': 'take off'}
+Elapsed time since last action: 19.17 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.09 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.48 seconds
+{'action': 'right'}
+FAILURE
+Elapsed time: 14.59 seconds

@@ -6,6 +6,7 @@
   </head>
   
   <script>
+   
      var socket = new WebSocket('ws://' + location.host + '/action');
      var difficulty = 'Not set';
 
@@ -19,12 +20,25 @@
        
 
        // Store the hexagoncolor
-       hexagon_color = 'blue';
+       hexagon_color = 'BLUE';
 
 
    // Update the difficulty display
-       document.getElementById('difficultyDisplay').textContent = "Next destination is " + hexagon_color+ " hexagon at checkpoint "+data.destination_name;
 
+   // Determine the color of the text based on hexagon_color
+      if (hexagon_color === "RED") {
+        textColor = "red";
+      } else if (hexagon_color === "BLUE") {
+        textColor = "#0099ff";
+      } else if (hexagon_color === "GREEN") {
+        textColor = "green";
+      } else {
+        textColor = "black"; // Default color
+      }
+
+   
+       //document.getElementById('difficultyDisplay').textContent = "NEXT DESTINATION IS THE" + hexagon_color+ " HEXAGON AT CHECKPOINT "+data.destination_name;
+       difficultyDisplay.innerHTML = "NEXT DESTINATION IS THE <span style='color: " + textColor + "'>" + hexagon_color+ " HEXAGON </span>  AT CHECKPOINT " + data.destination_name;
 
     }
 
@@ -44,7 +58,22 @@
 
        }
 
+       if (data.action == 'failure') {
+
+            document.getElementById('alertText').innerHTML = data.message;
+            document.getElementById('customAlert').style.display = 'block';
+
+            
+            
+            setTimeout(function () {
+            customAlert.style.display = 'none';
+          }, 6000);
+
+        
+       }
+
        if (data.action == 'goal') {
+      
         if(data.message.includes("http")){
             // Display the survey modal instead of the custom alert
             document.getElementById('surveyText').innerHTML = data.message;
@@ -52,9 +81,11 @@
         } else {
             document.getElementById('alertText').innerHTML = data.message;
             document.getElementById('customAlert').style.display = 'block';
+            
+            
             setTimeout(function () {
             customAlert.style.display = 'none';
-          }, 7000);
+          }, 10000);
         }
       }
 
@@ -76,10 +107,23 @@
       socket.send(JSON.stringify({ action: 'select_location_choice', choice: choice }));
 
     // Store the hexagoncolor
-    hexagon_color = choice == 'easy' ? 'green' : 'red';
+    hexagon_color = choice == 'easy' ? 'GREEN' : 'RED';
 
 // Update the difficulty display
-    document.getElementById('difficultyDisplay').textContent = "You have chosen the " + hexagon_color+ " hexagon for checkpoint "+data.destination_name;
+    // Determine the color of the text based on hexagon_color
+    if (hexagon_color === "RED") {
+        textColor = "red";
+      } else if (hexagon_color === "BLUE") {
+        textColor = "#0099ff";
+      } else if (hexagon_color === "GREEN") {
+        textColor = "green";
+      } else {
+        textColor = "black"; // Default color
+      }
+
+   
+       //document.getElementById('difficultyDisplay').textContent = "NEXT DESTINATION IS THE" + hexagon_color+ " HEXAGON AT CHECKPOINT "+data.destination_name;
+       difficultyDisplay.innerHTML = "NEXT DESTINATION IS THE <span style='color: " + textColor + "'>" + hexagon_color+ " HEXAGON </span>  AT CHECKPOINT " + data.destination_name;
 
 
       // Hide the modal
@@ -114,13 +158,23 @@
 <div id="log"></div>
     <br>
 
+
+   
+
     <div class="container">
+     
       <div class="button-container">
-      <h1>Drone Controller</h1>
-      <div class="score">
-        <h2 id="score">0 KR</h2>
-       
+        <div class="stopwatchcontainer">
+          <span id="stopwatch">Time: 00:00</span>
         </div>
+     <span id="difficultyDisplay">Difficulty not set</span>
+      
+      <div class="score-container">
+        <div id="score">0 KR</div>
+      </div>
+
+        
+        
       </div>
       <div><button class="btn" value="forward" onclick="sendText(this)">Forward</button></div>
       <div class="button-container">
@@ -135,12 +189,11 @@
 
 </div>
 
-<div class="container"><span id="difficultyDisplay">Difficulty not set</span></div>
+
 
 <div class="container">
   <div class="button-container2" id="btn2-container">
   <button class="btnTO" value="take off" onclick="sendText(this)">Take off</button>
-  <button class="btn2" value="land" id="landBtn" onclick="sendText(this)">Land</button>
   
 </div>
 </div>
@@ -175,9 +228,32 @@
 
 
 
+  <script>
+var stopwatchDisplay = document.getElementById('stopwatch');
+
+var seconds = 0;
+var minutes = 0;
+
+// Update the stopwatch display every second
+setInterval(function() {
+  seconds++;
+  if (seconds === 60) {
+    seconds = 0;
+    minutes++;
+  }
   
+  // Format the time as MM:SS
+  var time = padZero(minutes) + ':' + padZero(seconds);
+  
+  // Update the stopwatch display
+  stopwatchDisplay.textContent = 'Time: ' + time;
+}, 1000);
 
-
+// Helper function to pad a single digit number with a leading zero
+function padZero(num) {
+  return (num < 10 ? '0' : '') + num;
+}
+</script>
      </body>
     
     

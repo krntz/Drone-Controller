@@ -1,2272 +1,675 @@
 {'action': 'take off'}
+Elapsed time since last action: 11.23 seconds
 {'action': 'right'}
+Elapsed time since last action: 3.04 seconds
 {'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-score 5
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
+Elapsed time since last action: 3.31 seconds
 {'action': 'right'}
+Elapsed time since last action: 2.84 seconds
 {'action': 'right'}
-{'action': 'right'}
-score 5
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'take off'}
-score 5
-{'action': 'take off'}
-score 5
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'up'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'up'}
-{'action': 'left'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'down'}
-{'action': 'up'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 5
-{'action': 'take off'}
-{'action': 'left'}
-score 5
-{'action': 'take off'}
-{'action': 'forward'}
-score 5
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 5
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 5
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'forward'}
-score 5
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'up'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'up'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'left'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'forward'}
-score 10
-{'action': 'back'}
-{'action': 'take off'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-score 10
-{'action': 'take off'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'up'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'up'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'up'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'left'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'up'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'land'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'down'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'down'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-score 5
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-score 5
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'forward'}
-score 5
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'forward'}
-score 5
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-score 5
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-score 5
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'forward'}
-score 5
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'left'}
-score 5
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
-score 5
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'back'}
-score 5
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-score 10
-{'action': 'back'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-score 5
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'back'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'down'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'land'}
-{'action': 'up'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'right'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'right'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'right'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'right'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'left'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-score 5
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-score 5
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-score 5
-{'action': 'right'}
-score 5
-{'action': 'take off'}
-score 5
-{'action': 'take off'}
-score 5
-{'action': 'land'}
-score 5
-{'action': 'take off'}
-score 5
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-score 5
-{'action': 'take off'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'right'}
-score 5
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'back'}
-score 5
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-score 5
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
-score 5
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'land'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'land'}
-score 5
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
-score 5
-{'action': 'take off'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-score 5
-{'action': 'take off'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
-score 5
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-FAILURE
-{'action': 'left'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'back'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'land'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-FAILURE
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-score 10
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'left'}
-score 5
-{'action': 'back'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-score 5
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'take off'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-score 5
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'right'}
-score 5
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'back'}
-score 10
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-score 5
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'left'}
-score 10
-{'action': 'right'}
-{'action': 'back'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-score 5
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'right'}
-FAILURE
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-FAILURE
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-score 10
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'back'}
-{'action': 'right'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'right'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'take off'}
-score 10
-score 5
-{'action': 'take off'}
-score 10
-score 5
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-FAILURE
-{'action': 'take off'}
-score 10
-score 5
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'left'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-score 5
-{'action': 'take off'}
-score 10
-score 5
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-FAILURE
-{'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-default score 10
-score 5
-{'action': 'take off'}
-score 10
-default score 10
-score 5
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'right'}
+Elapsed time since last action: 2.87 seconds
 {'action': 'right'}
 default score 10
-score 5
 {'action': 'take off'}
-{'action': 'right'}
-{'action': 'right'}
-{'action': 'right'}
-score 10
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-default score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-default score 10
-score 5
-{'action': 'take off'}
+Elapsed time since last action: 10.91 seconds
 {'action': 'back'}
-{'action': 'left'}
+Elapsed time since last action: 5.10 seconds
 {'action': 'back'}
+Elapsed time since last action: 2.82 seconds
 {'action': 'back'}
-{'action': 'left'}
-{'action': 'right'}
-{'action': 'forward'}
-{'action': 'left'}
+Elapsed time since last action: 2.77 seconds
 {'action': 'back'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-default score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-score 10
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
+Elapsed time since last action: 3.02 seconds
 {'action': 'back'}
 default score 10
 {'action': 'take off'}
+Elapsed time since last action: 11.25 seconds
 {'action': 'right'}
+Elapsed time since last action: 2.77 seconds
 {'action': 'right'}
+Elapsed time since last action: 2.79 seconds
 {'action': 'right'}
+Elapsed time since last action: 2.79 seconds
+{'action': 'right'}
+default score 10
+Elapsed time: 26.28 seconds
+{'action': 'take off'}
+Elapsed time since last action: 22.79 seconds
+{'action': 'left'}
+Elapsed time since last action: 6.81 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.58 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.87 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.83 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.78 seconds
+{'action': 'back'}
+score 10
+Elapsed time: 29.87 seconds
+{'action': 'take off'}
+Elapsed time since last action: 19.21 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.75 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.06 seconds
+{'action': 'forward'}
+FAILURE
+Elapsed time: 16.84 seconds
+{'action': 'take off'}
+Elapsed time since last action: 10.82 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.78 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.37 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.30 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.82 seconds
+{'action': 'forward'}
+default score 10
+Elapsed time: 27.93 seconds
+{'action': 'take off'}
+Elapsed time since last action: 11.16 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.94 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.78 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.78 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.79 seconds
+{'action': 'forward'}
+default score 10
+Elapsed time: 27.17 seconds
+{'action': 'take off'}
+Elapsed time since last action: 12.31 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.73 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.79 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.76 seconds
+{'action': 'right'}
+default score 10
+Elapsed time: 27.16 seconds
+{'action': 'take off'}
+Elapsed time since last action: 20.81 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.85 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.77 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.95 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.86 seconds
+{'action': 'left'}
+score 10
+Elapsed time: 25.16 seconds
+{'action': 'take off'}
+Elapsed time since last action: 15.65 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.15 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.50 seconds
+{'action': 'forward'}
+FAILURE
+Elapsed time: 16.26 seconds
+{'action': 'take off'}
+Elapsed time since last action: 11.88 seconds
+{'action': 'left'}
+Elapsed time since last action: 6.48 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.86 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.84 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.10 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.40 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.37 seconds
+{'action': 'back'}
+default score 10
+Elapsed time: 34.64 seconds
+{'action': 'take off'}
+Elapsed time since last action: 14.52 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.82 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.79 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.74 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.87 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.15 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.58 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.28 seconds
+{'action': 'back'}
+Elapsed time since last action: 10.61 seconds
+{'action': 'forward'}
+Elapsed time since last action: 8.30 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.02 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.34 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.30 seconds
+{'action': 'back'}
+Elapsed time since last action: 7.27 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.02 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.53 seconds
+{'action': 'left'}
+Elapsed time since last action: 4.36 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.75 seconds
+{'action': 'back'}
+Elapsed time since last action: 6.00 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.77 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.22 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.03 seconds
+{'action': 'right'}
+Elapsed time since last action: 1.42 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.75 seconds
+{'action': 'right'}
+score 5
+Elapsed time: 97.46 seconds
+{'action': 'take off'}
+Elapsed time since last action: 18.89 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.55 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.06 seconds
+{'action': 'forward'}
+FAILURE
+Elapsed time: 18.42 seconds
+{'action': 'take off'}
+Elapsed time since last action: 13.55 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.11 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.98 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.98 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.95 seconds
+{'action': 'back'}
+default score 10
+Elapsed time: 28.26 seconds
+{'action': 'take off'}
+Elapsed time since last action: 17.66 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.06 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.77 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.22 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'back'}
+score 5
+Elapsed time: 24.71 seconds
+{'action': 'take off'}
+Elapsed time since last action: 18.87 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.91 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.85 seconds
+{'action': 'right'}
+FAILURE
+Elapsed time: 19.37 seconds
+{'action': 'take off'}
+Elapsed time since last action: 21.02 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.82 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.92 seconds
+{'action': 'forward'}
+score 5
+Elapsed time: 25.20 seconds
+{'action': 'take off'}
+Elapsed time since last action: 11.85 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.05 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.88 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.81 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'back'}
+default score 10
+Elapsed time: 26.14 seconds
+{'action': 'take off'}
+Elapsed time since last action: 15.21 seconds
+{'action': 'left'}
+Elapsed time since last action: 4.81 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.74 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.74 seconds
+{'action': 'forward'}
+score 5
+Elapsed time: 18.57 seconds
+{'action': 'take off'}
+Elapsed time since last action: 10.80 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.85 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.78 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.20 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.87 seconds
+{'action': 'back'}
+default score 10
+Elapsed time: 26.90 seconds
+{'action': 'take off'}
+Elapsed time since last action: 14.83 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.01 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.79 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.81 seconds
+{'action': 'forward'}
+score 5
+Elapsed time: 19.70 seconds
+{'action': 'take off'}
+Elapsed time since last action: 13.52 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.86 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.00 seconds
+{'action': 'right'}
+FAILURE
+Elapsed time: 16.37 seconds
+{'action': 'take off'}
+Elapsed time since last action: 19.98 seconds
+{'action': 'left'}
+Elapsed time since last action: 4.97 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.76 seconds
+{'action': 'left'}
+score 5
+Elapsed time: 25.71 seconds
+{'action': 'take off'}
+Elapsed time since last action: 12.14 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.63 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.31 seconds
+{'action': 'right'}
+FAILURE
+Elapsed time: 21.47 seconds
+{'action': 'take off'}
+Elapsed time since last action: 13.05 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.65 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.38 seconds
+{'action': 'right'}
+FAILURE
+Elapsed time: 22.38 seconds
+{'action': 'take off'}
+Elapsed time since last action: 11.03 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.44 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.41 seconds
+{'action': 'right'}
+FAILURE
+Elapsed time: 20.28 seconds
+{'action': 'take off'}
+Elapsed time since last action: 11.12 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.50 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.39 seconds
+{'action': 'right'}
+FAILURE
+Elapsed time: 20.40 seconds
+{'action': 'take off'}
+Elapsed time since last action: 10.92 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.52 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.33 seconds
+{'action': 'right'}
+FAILURE
+Elapsed time: 20.12 seconds
+{'action': 'take off'}
+Elapsed time since last action: 11.42 seconds
+{'action': 'back'}
+Elapsed time since last action: 5.00 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.78 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.77 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.96 seconds
+{'action': 'back'}
+default score 10
+Elapsed time: 25.94 seconds
+{'action': 'take off'}
+Elapsed time since last action: 16.63 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.92 seconds
+{'action': 'forward'}
+Elapsed time since last action: 7.07 seconds
+{'action': 'forward'}
+Elapsed time since last action: 3.03 seconds
 {'action': 'right'}
 score 10
+Elapsed time: 25.50 seconds
 {'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
+Elapsed time since last action: 11.98 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.88 seconds
 {'action': 'left'}
+Elapsed time since last action: 6.36 seconds
+{'action': 'left'}
+FAILURE
+Elapsed time: 17.31 seconds
+{'action': 'take off'}
+Elapsed time since last action: 21.45 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.08 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.76 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.85 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.91 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.71 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.81 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.73 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.95 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.73 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.75 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.27 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.71 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.91 seconds
+{'action': 'take off'}
+Elapsed time since last action: 11.17 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.30 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.79 seconds
+{'action': 'left'}
+Elapsed time since last action: 6.31 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.02 seconds
 {'action': 'left'}
 default score 10
+Elapsed time: 28.24 seconds
 {'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
+Elapsed time since last action: 21.00 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.57 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.31 seconds
+{'action': 'right'}
+Elapsed time since last action: 5.75 seconds
 {'action': 'forward'}
+Elapsed time since last action: 2.45 seconds
 {'action': 'left'}
-score 10
-{'action': 'take off'}
+Elapsed time since last action: 2.87 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'right'}
+Elapsed time since last action: 4.32 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.44 seconds
 {'action': 'left'}
+Elapsed time since last action: 4.79 seconds
+{'action': 'forward'}
+Elapsed time since last action: 10.35 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.42 seconds
 {'action': 'back'}
+Elapsed time since last action: 2.78 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.92 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.21 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.54 seconds
+{'action': 'back'}
+Elapsed time since last action: 8.80 seconds
+{'action': 'back'}
+score 5
+Elapsed time: 83.88 seconds
+{'action': 'take off'}
+Elapsed time since last action: 20.70 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.83 seconds
+{'action': 'take off'}
+Elapsed time since last action: 13.23 seconds
+{'action': 'forward'}
+Elapsed time since last action: 6.15 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.01 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.64 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.91 seconds
+{'action': 'forward'}
+default score 10
+Elapsed time: 28.95 seconds
+{'action': 'take off'}
+Elapsed time since last action: 12.78 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.92 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'right'}
+Elapsed time since last action: 4.10 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.08 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.74 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.80 seconds
+{'action': 'back'}
+Elapsed time since last action: 9.24 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.65 seconds
+{'action': 'back'}
+Elapsed time since last action: 7.99 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.21 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.90 seconds
+{'action': 'forward'}
+score 5
+Elapsed time: 54.85 seconds
+{'action': 'take off'}
+Elapsed time since last action: 14.33 seconds
+{'action': 'left'}
+Elapsed time since last action: 17.85 seconds
+{'action': 'left'}
+Elapsed time since last action: 4.68 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.93 seconds
+{'action': 'left'}
+Elapsed time since last action: 4.08 seconds
+{'action': 'left'}
+default score 10
+Elapsed time: 45.98 seconds
+{'action': 'take off'}
+Elapsed time since last action: 31.65 seconds
+{'action': 'right'}
+Elapsed time since last action: 5.20 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.12 seconds
+{'action': 'back'}
+Elapsed time since last action: 7.40 seconds
+{'action': 'right'}
+score 10
+Elapsed time: 40.12 seconds
+{'action': 'take off'}
+Elapsed time since last action: 130.89 seconds
+{'action': 'forward'}
+Elapsed time since last action: 21.83 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.02 seconds
 {'action': 'back'}
 FAILURE
+Elapsed time: 152.51 seconds
 {'action': 'take off'}
+Elapsed time since last action: 144.40 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.97 seconds
+{'action': 'right'}
+Elapsed time since last action: 4.26 seconds
+{'action': 'right'}
+Elapsed time since last action: 4.96 seconds
+{'action': 'right'}
+Elapsed time since last action: 5.25 seconds
 {'action': 'right'}
 {'action': 'right'}
+{'action': 'take off'}
+Elapsed time since last action: 29.12 seconds
+{'action': 'take off'}
+Elapsed time since last action: 12.83 seconds
 {'action': 'right'}
-{'action': 'land'}
+Elapsed time since last action: 2.63 seconds
+{'action': 'take off'}
+Elapsed time since last action: 13.64 seconds
+{'action': 'take off'}
+Elapsed time since last action: 24.93 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.36 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.88 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.93 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.78 seconds
+{'action': 'back'}
 default score 10
+Elapsed time: 40.59 seconds
 {'action': 'take off'}
+Elapsed time since last action: 18.70 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.73 seconds
 {'action': 'forward'}
+Elapsed time since last action: 4.74 seconds
 {'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-default score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
+Elapsed time since last action: 2.88 seconds
 {'action': 'forward'}
 score 10
+Elapsed time: 25.62 seconds
 {'action': 'take off'}
-{'action': 'forward'}
-{'action': 'land'}
-{'action': 'take off'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-default score 10
-{'action': 'take off'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'left'}
-{'action': 'forward'}
-{'action': 'left'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
-default score 10
-score 5
-{'action': 'take off'}
-{'action': 'back'}
-{'action': 'back'}
-{'action': 'back'}
+Elapsed time since last action: 18.54 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.99 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.29 seconds
+{'action': 'right'}
 FAILURE
+Elapsed time: 22.34 seconds
 {'action': 'take off'}
+Elapsed time since last action: 16.06 seconds
+{'action': 'forward'}
+Elapsed time since last action: 5.40 seconds
 {'action': 'right'}
+Elapsed time since last action: 0.79 seconds
 {'action': 'right'}
+Elapsed time since last action: 2.71 seconds
 {'action': 'right'}
+Elapsed time since last action: 3.92 seconds
+{'action': 'right'}
+Elapsed time since last action: 3.58 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.34 seconds
+{'action': 'right'}
+default score 10
+Elapsed time: 37.73 seconds
+{'action': 'take off'}
+Elapsed time since last action: 15.52 seconds
+{'action': 'left'}
+Elapsed time since last action: 5.17 seconds
+{'action': 'left'}
+Elapsed time since last action: 3.00 seconds
+{'action': 'back'}
+Elapsed time since last action: 3.15 seconds
+{'action': 'back'}
+score 5
+Elapsed time: 21.74 seconds
+{'action': 'take off'}
+Elapsed time since last action: 19.46 seconds
+{'action': 'left'}
+Elapsed time since last action: 6.84 seconds
+{'action': 'left'}
+Elapsed time since last action: 6.94 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.52 seconds
+{'action': 'left'}
+Elapsed time since last action: 2.92 seconds
+{'action': 'left'}
+default score 10
+Elapsed time: 42.35 seconds
+{'action': 'take off'}
+Elapsed time since last action: 24.96 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.76 seconds
+{'action': 'forward'}
+Elapsed time since last action: 4.82 seconds
+{'action': 'forward'}
+Elapsed time since last action: 2.94 seconds
+{'action': 'forward'}
+score 10
+Elapsed time: 27.53 seconds
+{'action': 'take off'}
+Elapsed time since last action: 13.18 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.46 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.84 seconds
+{'action': 'right'}
+FAILURE
+Elapsed time: 17.39 seconds
+{'action': 'take off'}
+Elapsed time since last action: 16.19 seconds
+{'action': 'back'}
+Elapsed time since last action: 4.85 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.84 seconds
+{'action': 'back'}
+Elapsed time since last action: 2.81 seconds
+{'action': 'right'}
+Elapsed time since last action: 0.76 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.74 seconds
+{'action': 'right'}
+Elapsed time since last action: 2.78 seconds
 {'action': 'right'}
 score 5
+Elapsed time: 31.00 seconds
