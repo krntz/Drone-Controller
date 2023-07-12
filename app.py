@@ -19,14 +19,14 @@ goal_reached = False
 # Destinations have a name, easy_location, hard_location
 destinations = [
 
-    Destination("A", [0.6, 0.3, .5], [0.6, -0.3 , .5], [1.0, 0, 0.5]),
-        Destination("D",  [0.3, -0.6, .5], [-0.3, -0.6, .5], [0, -1.0, .5]),
+    Destination("A", [0.65, 0.3, .5], [0.6, -0.3 , .5], [1.05, 0, 0.5]),
+        Destination("D",  [0.3, -0.7, .5], [-0.3, -0.6, .5], [0, -1.0, .5]),
     
-    Destination("B", [-0.3, 0.6, .5], [0.3, 0.6, .5], [0, 1.0, .5]),
+    Destination("B", [-0.65, 0.7, .5], [0.3, 0.6, .5], [0, 1.05, .5]),
 
     #Destination("A", [0., 0.,0.], [0., 0. , .0]),
     #Destination("B", [-0.0, 0.0, 0.], [0., 0., 0.],[-0.0, 0.0, 0.]),
-    Destination("C", [-0.6, -0.3, .5], [-0.6, 0.3, .5], [-1.0, 0.0, .5])
+    Destination("C", [-0.65, -0.3, .5], [-0.6, 0.3, .5], [-1.05, 0.0, .5])
 ]
 
 random.shuffle(destinations)
@@ -34,11 +34,11 @@ random.shuffle(destinations)
 
 target_position = destinations[0].default_location
 destination_index = 0
-threshold = 0.20
+threshold = 0.25
 score = 0
 failing_instance = False
 failing_counter = 0
-drone2 = True
+drone2 = False
 
 
 ###################################### FUNCTION THAT CHECKS IF GOAL IS REACHED ##########################################################
@@ -100,7 +100,7 @@ def echo(sock):
     global destination_index
     global target_position
 
-    sock.send(json.dumps({'action':'goal', 'message':'Welcome!  This is your first flight. Please fly to  <strong> checkpoint '+str(destinations[destination_index].name) +'</strong> and hover above the center of the blue ring'}))
+    sock.send(json.dumps({'action':'goal', 'message':'Welcome!  This is your first flight. Please fly to  <strong> checkpoint '+str(destinations[destination_index].name) +'</strong> and hover above the blue ring'}))
     sock.send(json.dumps({
                         'action': 'default',
                         'destination_index': destination_index,
@@ -122,129 +122,22 @@ def echo(sock):
                 continue  # Skip the rest of the loop and start the next iteration
         action = data['action']
 
-            ##### Log movement####################################################3333
-        with open(log_file, "a") as file:
-            file.write(f"{data}\n")
 
-        # Set the failing checkpoint, failing trial is always the third flight in an experimental block.
-        # Will be randomized with the help of random.org.
-        
         if target_position == destinations[0].hard_location or target_position == destinations[1].hard_location or target_position == destinations[2].hard_location or target_position == destinations[3].hard_location:
-            threshold = 0.13
+            threshold = 0.11
         else:
-            threshold = 0.26
+            threshold = 0.20
         if destination_index == 2:
-            failing_instance = False
+            failing_instance = True
             #if not failing_instance:
                 #threshold = 0.4        
         #if destination_index == 3:
             #threshold == 0.3
 
-        #################### FAILING MECHANISM ###########################################################################################################3
-        if failing_instance:
-            if failing_counter == 3:
-                destination_index = destination_index + 1
-                sock.send(json.dumps({'action': 'failure', 'message': '⚠️ <strong>SIGNAL LOST!</strong> ⚠️'}))
-                time.sleep(2)
-                drone_position = cf.position()
-                drone_position[0] = -(drone_position[0])
-                drone_position[1] = -(drone_position[1])
-                drone_position[2] = 0
-                with open(log_file, "a") as file:
-                    file.write("FAILURE\n")
-    
-                print('...landing, please wait')
-                end_time = time.time()
-                elapsed_time = end_time - start_time
-                with open(log_file, "a") as file:
-                    file.write("Elapsed time: {:.2f} seconds".format(elapsed_time)+"\n")
-                cf.goTo(drone_position,0.,0.,True)
-                cf.land(targetHeight=0.05,duration=2.0)
-                failing_instance = not failing_instance
-                failing_counter = 0
-                target_position = destinations[destination_index].default_location
-                sock.send(json.dumps({
-                        'action': 'select_location',
-                        'destination_index': destination_index,
-                        'destination_name': destinations[destination_index].name
-                    }))
-                start_time = time.time()
-                continue
-            failing_counter=failing_counter+1
-        
-        ############## CHECK IF GOAL IS REACHED ########################################################################################3
-        if is_close_to_point():
-            sock.send(json.dumps({'action':'score', 'value': score})) 
-            print("Hoop completed!")
-            end_time = time.time()
-            elapsed_time = end_time - start_time
-            with open(log_file, "a") as file:
-                    file.write("Elapsed time: {:.2f} seconds".format(elapsed_time)+"\n")
-            if goal_reached:
-                #sock.send(json.dumps({'action':'finish', 'message':'You have finished your job, pilot. You have earned an additional amount of '+ str(score)+' KR. And now, you can fill out the rest of the survey.' }))
-                sock.send(json.dumps({'action':'finish', 'message':'Destination reached! Well done! Going back to homebase.'})) 
-                time.sleep(5)
-
-                if drone2:
-                    sock.send(json.dumps({'action':'finish', 'message':'Second and last part of experiment is now finished. Please finish the survey. Click <a href="http://192.168.0.101:1231/waiting_room" target="_blank">HERE</a> for the survey.'})) 
-                else:
-                    #sock.send(json.dumps({'action':'finish', 'message':'You have completed the first sets of tasks! You can now do the first part of the <a href="https://link_to_your_survey.com" onclick="document.getElementById(\'surveyModal\').style.display=\'none\'"    target="_blank">survey</a>.'}))
-                    sock.send(json.dumps({'action':'goal', 'message':'You have completed the first part of this experiment. You can now do the first part of the survey. Click <a href="http://192.168.0.101:1231/waitingroomone" onclick="document.getElementById(\'surveyModal\').style.display=\'none\'"    target="_blank">HERE</a> for it. When you are done with the first part of the survey, the supervisor will change your drone.'}))
-
-                drone_position = cf.position()
-                drone_position[0] = -(drone_position[0])
-                drone_position[1] = -(drone_position[1])
-                drone_position[2] = 0
-                print('...landing, please wait')
-                cf.goTo(drone_position,0.,0.,True)
-                time.sleep(2)  
-
-                cf.land(targetHeight=0.05,duration=2.0)
-                break            
-            if destination_index == 1:
-                sock.send(json.dumps({'action':'goal', 'message':'Destination reached! First flight finished! ... Going back to home base.'}))
-                time.sleep(5)
-
-                
-            else:
-                sock.send(json.dumps({'action':'goal', 'message':'Destination reached! ... Going back to home base. ' }))
-                time.sleep(5)
-                
-            drone_position = cf.position()
-            drone_position[0] = -(drone_position[0])
-            drone_position[1] = -(drone_position[1])
-            drone_position[2] = 0
- 
-            print('...landing, please wait')
-            cf.goTo(drone_position,0.,0.,True)
-            time.sleep(2)  
-
-            cf.land(targetHeight=0.05,duration=2.0)
-
-            if destination_index == 1 or destination_index == 3:
-                sock.send(json.dumps({
-                        'action': 'select_location',
-                        'destination_index': destination_index,
-                        'destination_name': destinations[destination_index].name
-                    }))
-            else:
-                target_position = destinations[destination_index].default_location
-                sock.send(json.dumps({
-                        'action': 'default',
-                        'destination_index': destination_index,
-                        'destination_name': destinations[destination_index].name
-                    }))
-
-            start_time = time.time()
-            continue
-
-
-
-
-####################### DRONE CONTROLS"################################################################################3
-
-
-
+            ##### Log movement####################################################3333
+        with open(log_file, "a") as file:
+            file.write(f"{data}\n")
+            ####################### DRONE CONTROLS"################################################################################3
         
         if action == 'back':
             print("Going back...")
@@ -299,6 +192,130 @@ def echo(sock):
             print('...landing, please wait')
             timeHelper.sleep(2.0)
             cf.land(targetHeight=0.15,duration=2.0)
+
+        # Set the failing checkpoint, failing trial is always the third flight in an experimental block.
+        # Will be randomized with the help of random.org.
+        
+        
+
+        #################### FAILING MECHANISM ###########################################################################################################3
+        if failing_instance:
+
+            if failing_counter == 2:
+                sock.send(json.dumps({'action': 'failure', 'message': '⚠️ <strong> <span style="color: red;"> WARNING </span> </strong> ⚠️ <br/><strong> WEAK DRONE SIGNAL </strong><br/>'}))
+                cf.goTo([0,0,-.2],0.,0.,True)
+                time.sleep(1)
+                cf.goTo([0,0,.2],0.,0.,True)
+                time.sleep(1)
+            if failing_counter == 6:
+                destination_index = destination_index + 1
+                sock.send(json.dumps({'action': 'failure', 'message': '⚠️ <strong> <span style="color: red;"> ATTENTION </span> </strong> ⚠️ <br/><strong> DRONE SIGNAL FAILURE </strong> <br/> Cannot complete checkpoint'}))
+                cf.goTo([0,0,-.2],0.,0.,True)
+                time.sleep(1)
+                cf.goTo([0,0,.2],0.,0.,True)
+                time.sleep(1)
+                cf.goTo([0,0,-.2],0.,0.,True)
+                time.sleep(1)
+                cf.goTo([0,0,.2],0.,0.,True)
+
+                
+                
+                time.sleep(1)
+                drone_position = cf.position()
+                drone_position[0] = -(drone_position[0])
+                drone_position[1] = -(drone_position[1])
+                drone_position[2] = 0
+                with open(log_file, "a") as file:
+                    file.write("FAILURE\n")
+    
+                print('...landing, please wait')
+                end_time = time.time()
+                elapsed_time = end_time - start_time
+                with open(log_file, "a") as file:
+                    file.write("Elapsed time: {:.2f} seconds".format(elapsed_time)+"\n")
+                cf.goTo(drone_position,0.,0.,True)
+                cf.land(targetHeight=0.05,duration=2.0)
+                failing_instance = not failing_instance
+                failing_counter = 0
+                time.sleep(6)
+                target_position = destinations[destination_index].default_location
+                sock.send(json.dumps({
+                        'action': 'select_location',
+                        'destination_index': destination_index,
+                        'destination_name': destinations[destination_index].name
+                    }))
+                start_time = time.time()
+                continue
+            failing_counter=failing_counter+1
+        
+        ############## CHECK IF GOAL IS REACHED ########################################################################################3
+        if is_close_to_point():
+            sock.send(json.dumps({'action':'score', 'value': score})) 
+            print("Hoop completed!")
+            end_time = time.time()
+            elapsed_time = end_time - start_time
+            with open(log_file, "a") as file:
+                    file.write("Elapsed time: {:.2f} seconds".format(elapsed_time)+"\n")
+            if goal_reached:
+                #sock.send(json.dumps({'action':'finish', 'message':'You have finished your job, pilot. You have earned an additional amount of '+ str(score)+' KR. And now, you can fill out the rest of the survey.' }))
+                sock.send(json.dumps({'action':'finish', 'message':'Destination reached! Well done! Going back to homebase.'})) 
+                time.sleep(5)
+
+                if drone2:
+                    sock.send(json.dumps({'action':'finish', 'message':'Second and last part of experiment is now finished. You have earned <strong>'+str(score)+'</strong>SEK this flight session! Please finish the survey. Click <a href="http://192.168.0.101:1231/waiting_room" target="_blank">HERE</a> for the survey.'})) 
+                else:
+                    #sock.send(json.dumps({'action':'finish', 'message':'You have completed the first sets of tasks! You can now do the first part of the <a href="https://link_to_your_survey.com" onclick="document.getElementById(\'surveyModal\').style.display=\'none\'"    target="_blank">survey</a>.'}))
+                    sock.send(json.dumps({'action':'goal', 'message':'You have completed the first part of this experiment.<br/> You have earned <strong>' + str(score) +'</strong> SEK in this flight session! You can now do the first part of the survey. Click <a href="http://192.168.0.101:1231/waitingroomone" onclick="document.getElementById(\'surveyModal\').style.display=\'none\'"    target="_blank">HERE</a> for it. When you are done with the first part of the survey, the supervisor will change your drone.'}))
+
+                drone_position = cf.position()
+                drone_position[0] = -(drone_position[0])
+                drone_position[1] = -(drone_position[1])
+                drone_position[2] = 0
+                print('...landing, please wait')
+                cf.goTo(drone_position,0.,0.,True)
+                cf.land(targetHeight=0.05,duration=2.0)
+                break            
+            if destination_index == 1:
+                sock.send(json.dumps({'action':'goal', 'message':'Destination reached! First flight finished! ... Going back to home base.'}))
+                time.sleep(5)
+
+                
+            else:
+                sock.send(json.dumps({'action':'goal', 'message':'Destination reached! ... Going back to home base. ' }))
+                time.sleep(5)
+                
+            drone_position = cf.position()
+            drone_position[0] = -(drone_position[0])
+            drone_position[1] = -(drone_position[1])
+            drone_position[2] = 0
+ 
+            print('...landing, please wait')
+            cf.goTo(drone_position,0.,0.,True)
+            time.sleep(2)  
+
+            cf.land(targetHeight=0.05,duration=2.0)
+
+            if destination_index == 1 or destination_index == 3:
+                sock.send(json.dumps({
+                        'action': 'select_location',
+                        'destination_index': destination_index,
+                        'destination_name': destinations[destination_index].name
+                    }))
+            else:
+                target_position = destinations[destination_index].default_location
+                sock.send(json.dumps({
+                        'action': 'default',
+                        'destination_index': destination_index,
+                        'destination_name': destinations[destination_index].name
+                    }))
+
+            start_time = time.time()
+            continue
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

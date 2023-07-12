@@ -60,13 +60,13 @@
 
        if (data.action == 'failure') {
 
-            document.getElementById('alertText').innerHTML = data.message;
-            document.getElementById('customAlert').style.display = 'block';
+            document.getElementById('failureText').innerHTML = data.message;
+            document.getElementById('failureAlert').style.display = 'block';
 
             
             
             setTimeout(function () {
-            customAlert.style.display = 'none';
+            failureAlert.style.display = 'none';
           }, 6000);
 
         
@@ -215,6 +215,16 @@
     </div>
     
   </div>
+
+
+    <!-- The custom alert box -->
+    <div id="failureAlert" class="failure-alert">
+   
+      <div class="failure-alert-content">
+        <p id="failureText"></p>
+      </div>
+      
+    </div>
 
  
 
