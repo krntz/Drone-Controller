@@ -85,7 +85,7 @@
             
             setTimeout(function () {
             customAlert.style.display = 'none';
-          }, 10000);
+          }, 3000);
         }
       }
 
@@ -165,7 +165,7 @@
      
       <div class="button-container">
         <div class="stopwatchcontainer">
-          <span id="stopwatch">Time: 00:00</span>
+          <span id="stopwatch" >Time: 04:00</span>
         </div>
      <span id="difficultyDisplay">Difficulty not set</span>
       
@@ -239,30 +239,46 @@
 
 
   <script>
+
 var stopwatchDisplay = document.getElementById('stopwatch');
 
+
+var minutes = 4;
 var seconds = 0;
-var minutes = 0;
 
 // Update the stopwatch display every second
-setInterval(function() {
-  seconds++;
-  if (seconds === 60) {
-    seconds = 0;
-    minutes++;
+var countdownInterval = setInterval(function() {
+  if (minutes === 0 && seconds === 0) {
+    // Timer has reached 0:00, handle the countdown completion here
+    clearInterval(countdownInterval);
+    var time = padZero(minutes) + ':' + padZero(seconds);
+
+    stopwatchDisplay.textContent = 'Time: ' + time;
+    // Add your desired code to execute when the countdown reaches 0:00
+    stopwatchDisplay.classList.add('blinking');
+    return;
   }
-  
+
   // Format the time as MM:SS
   var time = padZero(minutes) + ':' + padZero(seconds);
-  
+
   // Update the stopwatch display
   stopwatchDisplay.textContent = 'Time: ' + time;
+
+  // Decrement the seconds
+  if (seconds > 0) {
+    seconds--;
+  } else {
+    seconds = 59;
+    minutes--;
+  }
 }, 1000);
 
 // Helper function to pad a single digit number with a leading zero
 function padZero(num) {
   return (num < 10 ? '0' : '') + num;
 }
+
 </script>
      </body>
     
