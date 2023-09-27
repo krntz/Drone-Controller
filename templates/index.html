@@ -67,10 +67,26 @@
             
             setTimeout(function () {
             failureAlert.style.display = 'none';
-          }, 6000);
+          }, 8000);
 
         
        }
+
+
+       if (data.action == 'welcome') {
+
+            document.getElementById('alertText').innerHTML = data.message;
+            document.getElementById('customAlert').style.display = 'block';
+
+
+
+          setTimeout(function () {
+            customAlert.style.display = 'none';
+
+          }, 8000);
+
+
+}
 
        if (data.action == 'goal') {
       
@@ -256,7 +272,17 @@ var countdownInterval = setInterval(function() {
     stopwatchDisplay.textContent = 'Time: ' + time;
     // Add your desired code to execute when the countdown reaches 0:00
     stopwatchDisplay.classList.add('blinking');
+
+     // Reset the score to 0
+     scoreValue = 0;
+
+    // Update the score display
+    document.getElementById('score').textContent = scoreValue + " KR";
+
+
+    socket.send(JSON.stringify({ action: 'score', score: scoreValue}));
     return;
+
   }
 
   // Format the time as MM:SS
