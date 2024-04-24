@@ -8,6 +8,16 @@ import json
 import time
 import random
 
+import logging
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename='movements.log', 
+                    filemode='a', 
+                    encoding='utf-8', 
+                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.DEBUG)
+
 swarm = Crazyswarm()
 timeHelper = swarm.timeHelper
 cf = swarm.allcfs.crazyflies[0]
@@ -46,19 +56,22 @@ def is_close_to_point():
     if threshold >= distance:
         if target_position == destinations[destination_index].hard_location:
             score += 15
-            with open("movements.log", "a") as file:
-                file.write("score 15\n " +
-                           str(destinations[destination_index].name))
+            logging.info("score 15\n " + str(destinations[destination_index].name))
+            #with open("movements.log", "a") as file:
+            #    file.write("score 15\n " +
+            #               str(destinations[destination_index].name))
         if target_position == destinations[destination_index].default_location:
             score += 10
-            with open("movements.log", "a") as file:
-                file.write("default score 10\n " +
-                           str(destinations[destination_index].name))
+            logging.info("default score 10\n " + str(destinations[destination_index].name))
+            #with open("movements.log", "a") as file:
+            #    file.write("default score 10\n " +
+            #               str(destinations[destination_index].name))
         if target_position == destinations[destination_index].easy_location:
             score += 5
-            with open("movements.log", "a") as file:
-                file.write("score 5\n " +
-                           str(destinations[destination_index].name))
+            logging.info("score 5\n " + str(destinations[destination_index].name))
+            #with open("movements.log", "a") as file:
+            #    file.write("score 5\n " +
+            #               str(destinations[destination_index].name))
         if len(destinations) - 1 == destination_index:
             goal_reached = True
         elif destination_index < len(destinations) - 1:
@@ -78,7 +91,6 @@ def echo(sock):
     global score
     global goal_reached
     global destinations
-    log_file = "movements.log"  # File where movements and durations will be logged
     global failing_instance
     global threshold
     global failing_counter
@@ -127,8 +139,9 @@ def echo(sock):
             failing_instance = True
 
         # Log movement
-        with open(log_file, "a") as file:
-            file.write(f"{data}\n")
+        logger.info(f"{data}\n")
+        #with open(log_file, "a") as file:
+        #    file.write(f"{data}\n")
 
         # DRONE CONTROLS
         if action == 'back':
@@ -139,9 +152,10 @@ def echo(sock):
                 timeHelper.sleep(2)
                 end_time = time.time()
                 elapsed_time = end_time - start_time_action
-                with open(log_file, "a") as file:
-                    file.write(
-                        "Elapsed time since last action: {:.2f} seconds".format(elapsed_time) + "\n")
+                logger.info("Elapsed time since last action: {:.2f} seconds".format(elapsed_time))
+                #with open(log_file, "a") as file:
+                #    file.write(
+                #        "Elapsed time since last action: {:.2f} seconds".format(elapsed_time) + "\n")
                 start_time_action = time.time()
 
         if action == 'forward':
@@ -150,9 +164,10 @@ def echo(sock):
                 cf.goTo([0.10, 0, 0], None, 2., True)
                 end_time = time.time()
                 elapsed_time = end_time - start_time_action
-                with open(log_file, "a") as file:
-                    file.write(
-                        "Elapsed time since last action: {:.2f} seconds".format(elapsed_time) + "\n")
+                logger.info("Elapsed time since last action: {:.2f} seconds".format(elapsed_time))
+                #with open(log_file, "a") as file:
+                #    file.write(
+                #        "Elapsed time since last action: {:.2f} seconds".format(elapsed_time) + "\n")
                 start_time_action = time.time()
 
         if action == 'right':
@@ -161,9 +176,10 @@ def echo(sock):
                 cf.goTo([0., -0.10, 0], None, 2., True)
                 end_time = time.time()
                 elapsed_time = end_time - start_time_action
-                with open(log_file, "a") as file:
-                    file.write(
-                        "Elapsed time since last action: {:.2f} seconds".format(elapsed_time) + "\n")
+                logger.info("Elapsed time since last action: {:.2f} seconds".format(elapsed_time))
+                #with open(log_file, "a") as file:
+                #    file.write(
+                #        "Elapsed time since last action: {:.2f} seconds".format(elapsed_time) + "\n")
                 start_time_action = time.time()
 
         if action == 'left':
@@ -173,9 +189,10 @@ def echo(sock):
                 # time.sleep(2)
                 end_time = time.time()
                 elapsed_time = end_time - start_time_action
-                with open(log_file, "a") as file:
-                    file.write(
-                        "Elapsed time since last action: {:.2f} seconds".format(elapsed_time) + "\n")
+                logger.info("Elapsed time since last action: {:.2f} seconds".format(elapsed_time))
+                #with open(log_file, "a") as file:
+                #    file.write(
+                #        "Elapsed time since last action: {:.2f} seconds".format(elapsed_time) + "\n")
                 start_time_action = time.time()
 
         if action == 'take off':
@@ -184,9 +201,10 @@ def echo(sock):
             # time.sleep(2)
             end_time = time.time()
             elapsed_time = end_time - start_time_action
-            with open(log_file, "a") as file:
-                file.write(
-                    "Elapsed time since last action: {:.2f} seconds".format(elapsed_time) + "\n")
+            logger.info("Elapsed time since last action: {:.2f} seconds".format(elapsed_time))
+            #with open(log_file, "a") as file:
+            #    file.write(
+            #        "Elapsed time since last action: {:.2f} seconds".format(elapsed_time) + "\n")
             start_time_action = time.time()
 
         if action == 'land':
@@ -234,14 +252,16 @@ def echo(sock):
                 drone_position[1] = -(drone_position[1])
                 drone_position[2] = 0
 
-                with open(log_file, "a") as file:
-                    file.write("FAILURE\n")
+                logger.info("FAILURE\n")
+                #with open(log_file, "a") as file:
+                #    file.write("FAILURE\n")
                 end_time = time.time()
                 elapsed_time = end_time - start_time
 
-                with open(log_file, "a") as file:
-                    file.write(
-                        "Elapsed time: {:.2f} seconds".format(elapsed_time) + "\n")
+                logger.info("Elapsed time: {:.2f} seconds".format(elapsed_time))
+                #with open(log_file, "a") as file:
+                #    file.write(
+                #        "Elapsed time: {:.2f} seconds".format(elapsed_time) + "\n")
                 cf.goTo(drone_position, None, 2, True)
                 timeHelper.sleep(2)
 
@@ -285,10 +305,11 @@ def echo(sock):
             end_time = time.time()
             elapsed_time = end_time - start_time
 
-            with open(log_file, "a") as file:
-                file.write(
-                    "Elapsed time: {:.2f} seconds".format(elapsed_time) + "\n"
-                )
+            logger.info("Elapsed time: {:.2f} seconds".format(elapsed_time))
+            #with open(log_file, "a") as file:
+            #    file.write(
+            #        "Elapsed time: {:.2f} seconds".format(elapsed_time) + "\n"
+            #    )
 
             if goal_reached:
                 sock.send(json.dumps(
