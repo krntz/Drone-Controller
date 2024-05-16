@@ -1,0 +1,3 @@
+[submodule "controllers"]
+	path = controllers
+	url = git@github.com:krntz/automata-controllers.git
