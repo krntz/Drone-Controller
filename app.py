@@ -1,27 +1,42 @@
+import json
+import logging
+import math
+import random
+import time
 from operator import truediv
+
 from flask import Flask, render_template
 from flask_sock import Sock
-from pycrazyswarm import Crazyswarm
-import math
-from destination import Destination
-import json
-import time
-import random
 
-swarm = Crazyswarm()
-timeHelper = swarm.timeHelper
-cf = swarm.allcfs.crazyflies[0]
+from controllers.crazyflieController import CrazyflieController
+from controllers.utils.utils import FlightZone
+
+logger = logging.getLogger(__name__)
+
 app = Flask(__name__)
 sock = Sock(app)
+
+drone_uri = 'radio://0/80/2M/E7E7E7E7E0'
+flight_zone = FlightZone(2.0, 3.0, 1.25, 0.3)
+cf = CrazyflieController({drone_uri}, flight_zone, drone_uri)
+
 goal_reached = False
+
+class Destination:
+    def __init__(self, name, easy_location, hard_location, default_location):
+        self.name = name
+        self.easy_location = easy_location
+        self.hard_location = hard_location
+        self.default_location = default_location
+
 # Destinations have a name, easy_location, hard_location
 destinations = [
-
     Destination("A", [0.60, 0.3, .5], [0.6, -0.3, .5], [1., 0, 0.5]),
     Destination("D", [0.3, -0.6, .5], [-0.3, -0.6, .5], [0, -1.0, .5]),
     Destination("B", [-0.6, 0.60, .4], [0.3, 0.6, .5], [0, 1., .5]),
     Destination("C", [-0.6, -0.3, .5], [-0.6, 0.3, .5], [-1., 0.0, .5])
 ]
+
 random.shuffle(destinations)
 target_position = destinations[0].default_location
 destination_index = 0
@@ -32,8 +47,10 @@ failing_counter = 0
 drone2 = True
 
 # FUNCTION THAT CHECKS IF GOAL IS REACHED
+
+
 def is_close_to_point():
-    drone_position = cf.position()
+    drone_position = cf.positions()[drone_uri]
 
     global target_position
     global destination_index
@@ -43,26 +60,31 @@ def is_close_to_point():
     dy = drone_position[1] - target_position[1]
     dz = drone_position[2] - target_position[2]
     distance = math.sqrt(dx**2 + dy**2 + dz**2)
+
     if threshold >= distance:
         if target_position == destinations[destination_index].hard_location:
             score += 15
             with open("movements.log", "a") as file:
                 file.write("score 15\n " +
                            str(destinations[destination_index].name))
+
         if target_position == destinations[destination_index].default_location:
             score += 10
             with open("movements.log", "a") as file:
                 file.write("default score 10\n " +
                            str(destinations[destination_index].name))
+
         if target_position == destinations[destination_index].easy_location:
             score += 5
             with open("movements.log", "a") as file:
                 file.write("score 5\n " +
                            str(destinations[destination_index].name))
+
         if len(destinations) - 1 == destination_index:
             goal_reached = True
         elif destination_index < len(destinations) - 1:
             destination_index += 1
+
         return True
     else:
         return False
@@ -100,19 +122,25 @@ def echo(sock):
 
     start_time = time.time()
     start_time_action = time.time()
+
     while True:
         data = sock.receive()
+
         if isinstance(data, str):  # Data is usually a string...
             data = json.loads(data)  # ...so parse it into a dictionary
+
             if 'action' in data and data['action'] == 'select_location_choice':
                 choice = data['choice']
+
                 if choice == 'easy':
                     target_position = destinations[destination_index].easy_location
                 else:  # 'hard'
                     target_position = destinations[destination_index].hard_location
+
                 continue  # Skip the rest of the loop and start the next iteration
 
         # Check if score should be updated.
+
         if 'action' in data and data['action'] == 'score':
             score = 0
         action = data['action']
@@ -131,8 +159,9 @@ def echo(sock):
             file.write(f"{data}\n")
 
         # DRONE CONTROLS
+
         if action == 'back':
-            if cf.position()[2] > 0.15:
+            if cf.positions()[drone_uri][2] > 0.15:
                 print("Going back...")
                 cf.goTo([-0.1, 0, 0], None, 2., True)
                 # time.sleep(2)
@@ -145,7 +174,7 @@ def echo(sock):
                 start_time_action = time.time()
 
         if action == 'forward':
-            if cf.position()[2] > 0.15:
+            if cf.positions()[drone_uri][2] > 0.15:
                 print("going forward...")
                 cf.goTo([0.10, 0, 0], None, 2., True)
                 end_time = time.time()
@@ -156,7 +185,7 @@ def echo(sock):
                 start_time_action = time.time()
 
         if action == 'right':
-            if cf.position()[2] > 0.15:
+            if cf.positions()[drone_uri][2] > 0.15:
                 print('Going right...')
                 cf.goTo([0., -0.10, 0], None, 2., True)
                 end_time = time.time()
@@ -167,7 +196,7 @@ def echo(sock):
                 start_time_action = time.time()
 
         if action == 'left':
-            if cf.position()[2] > 0.15:
+            if cf.positions()[drone_uri][2] > 0.15:
                 print("Going left..")
                 cf.goTo([0., 0.10, 0], None, 2., True)
                 # time.sleep(2)
@@ -190,7 +219,7 @@ def echo(sock):
             start_time_action = time.time()
 
         if action == 'land':
-            drone_position = cf.position()
+            drone_position = cf.positions()[drone_uri]
             drone_position[0] = -(drone_position[0])
             drone_position[1] = -(drone_position[1])
             drone_position[2] = 0
@@ -199,17 +228,21 @@ def echo(sock):
             timeHelper.sleep(2.0)
             cf.land(targetHeight=0.15, duration=2.0)
             timeHelper.sleep(3.0)
-            if cf.position()[2] > 0.01:
+
+            if cf.positions()[drone_uri][2] > 0.01:
                 cf.land(targetHeight=0.05, duration=2.0)
-            if cf.position()[2] > 0.01:
+
+            if cf.positions()[drone_uri][2] > 0.01:
                 cf.land(targetHeight=0.05, duration=2.0)
-            if cf.position()[2] > 0.01:
+
+            if cf.positions()[drone_uri][2] > 0.01:
                 cf.land(targetHeight=0.05, duration=2.0)
 
         # Set the failing checkpoint, failing trial is always the third flight in an experimental block.
         # Will be randomized with the help of random.org.
 
         # FAILING MECHANISM
+
         if failing_instance:
             if failing_counter == 2:
                 sock.send(json.dumps({
@@ -229,7 +262,7 @@ def echo(sock):
 
                 cf.goTo([0, 0, .2], 0., 2., True)
                 timeHelper.sleep(2)
-                drone_position = cf.position()
+                drone_position = cf.positions()[drone_uri]
                 drone_position[0] = -(drone_position[0])
                 drone_position[1] = -(drone_position[1])
                 drone_position[2] = 0
@@ -248,19 +281,19 @@ def echo(sock):
                 cf.land(targetHeight=0.05, duration=2.0)
                 timeHelper.sleep(3)
 
-                if cf.position()[2] > 0.01:
+                if cf.positions()[drone_uri][2] > 0.01:
                     cf.land(targetHeight=0.05, duration=2.0)
 
-                if cf.position()[2] > 0.01:
+                if cf.positions()[drone_uri][2] > 0.01:
                     cf.land(targetHeight=0.05, duration=2.0)
 
-                if cf.position()[2] > 0.01:
+                if cf.positions()[drone_uri][2] > 0.01:
                     cf.land(targetHeight=0.05, duration=2.0)
 
-                if cf.position()[2] > 0.01:
+                if cf.positions()[drone_uri][2] > 0.01:
                     cf.land(targetHeight=0.05, duration=2.0)
 
-                if cf.position()[2] > 0.01:
+                if cf.positions()[drone_uri][2] > 0.01:
                     cf.land(targetHeight=0.05, duration=2.0)
 
                 failing_instance = not failing_instance
@@ -279,6 +312,7 @@ def echo(sock):
             failing_counter = failing_counter + 1
 
         # CHECK IF GOAL IS REACHED
+
         if is_close_to_point():
             sock.send(json.dumps({'action': 'score', 'value': score}))
             print("Hoop completed!")
@@ -298,12 +332,12 @@ def echo(sock):
                 if drone2:
                     sock.send(json.dumps({
                         'action': 'finish',
-                        'message': 'Second and last part of experiment is now finished. You have earned <strong>' + 
-                        str(score) + 
+                        'message': 'Second and last part of experiment is now finished. You have earned <strong>' +
+                        str(score) +
                         '</strong> SEK this flight session! Please finish the survey. Click <a href="http://192.168.0.100:1231/waiting_room" target="_blank">HERE</a> for the survey.'
                     }))
 
-                    drone_position = cf.position()
+                    drone_position = cf.positions()[drone_uri]
                     drone_position[0] = -(drone_position[0])
                     drone_position[1] = -(drone_position[1])
                     drone_position[2] = 0
@@ -311,8 +345,8 @@ def echo(sock):
                     cf.goTo(drone_position, 0., 1, True)
                     timeHelper.sleep(2)
 
-                    if cf.position()[0] > 0.001:
-                        drone_position = cf.position()
+                    if cf.positions()[drone_uri][0] > 0.001:
+                        drone_position = cf.positions()[drone_uri]
                         drone_position[0] = -(drone_position[0])
                         drone_position[1] = -(drone_position[1])
                         drone_position[2] = 0
@@ -321,25 +355,25 @@ def echo(sock):
                     cf.land(targetHeight=0.05, duration=2.0)
                     timeHelper.sleep(3)
 
-                    if cf.position()[2] > 0.01:
+                    if cf.positions()[drone_uri][2] > 0.01:
                         cf.land(targetHeight=0.05, duration=2.0)
 
-                    if cf.position()[2] > 0.01:
+                    if cf.positions()[drone_uri][2] > 0.01:
                         cf.land(targetHeight=0.05, duration=2.0)
 
-                    if cf.position()[2] > 0.01:
+                    if cf.positions()[drone_uri][2] > 0.01:
                         cf.land(targetHeight=0.05, duration=2.0)
 
                     break
                 else:
                     sock.send(json.dumps({
-                            'action': 'goal', 
-                            'message': 'You have completed the first part of this experiment.<br/> You have earned <strong>' +
-                            str(score) +
-                            '</strong> SEK in this flight session! You can now do the first part of the survey. Click <a href="http://192.168.0.100:1231/waitingroomone" onclick="document.getElementById(\'surveyModal\').style.display=\'none\'"    target="_blank">HERE</a> for it. When you are done with the first part of the survey, the supervisor will change your drone.'
-                        }))
+                        'action': 'goal',
+                        'message': 'You have completed the first part of this experiment.<br/> You have earned <strong>' +
+                        str(score) +
+                        '</strong> SEK in this flight session! You can now do the first part of the survey. Click <a href="http://192.168.0.100:1231/waitingroomone" onclick="document.getElementById(\'surveyModal\').style.display=\'none\'"    target="_blank">HERE</a> for it. When you are done with the first part of the survey, the supervisor will change your drone.'
+                    }))
 
-                    drone_position = cf.position()
+                    drone_position = cf.positions()[drone_uri]
                     drone_position[0] = -(drone_position[0])
                     drone_position[1] = -(drone_position[1])
                     drone_position[2] = 0
@@ -348,8 +382,8 @@ def echo(sock):
                     cf.goTo(drone_position, 0., 1, True)
                     timeHelper.sleep(2)
 
-                    if cf.position()[0] > 0.1:
-                        drone_position = cf.position()
+                    if cf.positions()[drone_uri][0] > 0.1:
+                        drone_position = cf.positions()[drone_uri]
                         drone_position[0] = -(drone_position[0])
                         drone_position[1] = -(drone_position[1])
                         drone_position[2] = 0
@@ -359,22 +393,25 @@ def echo(sock):
                     cf.land(targetHeight=0.05, duration=2.0)
                     timeHelper.sleep(3)
 
-                    if cf.position()[2] > 0.01:
+                    if cf.positions()[drone_uri][2] > 0.01:
                         cf.land(targetHeight=0.05, duration=2.0)
-                    if cf.position()[2] > 0.01:
+
+                    if cf.positions()[drone_uri][2] > 0.01:
                         cf.land(targetHeight=0.05, duration=2.0)
-                    if cf.position()[2] > 0.01:
+
+                    if cf.positions()[drone_uri][2] > 0.01:
                         cf.land(targetHeight=0.05, duration=2.0)
+
                     break
 
             if destination_index == 1:
                 sock.send(json.dumps({
-                            'action': 'goal',
-                            'message': 'Destination reached! First flight finished! ... Going back to home base.'
+                    'action': 'goal',
+                    'message': 'Destination reached! First flight finished! ... Going back to home base.'
                 }))
 
                 timeHelper.sleep(3)
-                drone_position = cf.position()
+                drone_position = cf.positions()[drone_uri]
                 drone_position[0] = -(drone_position[0])
                 drone_position[1] = -(drone_position[1])
                 drone_position[2] = 0
@@ -386,7 +423,7 @@ def echo(sock):
                 }))
 
                 timeHelper.sleep(3)
-                drone_position = cf.position()
+                drone_position = cf.positions()[drone_uri]
                 drone_position[0] = -(drone_position[0])
                 drone_position[1] = -(drone_position[1])
                 drone_position[2] = 0
@@ -395,22 +432,22 @@ def echo(sock):
             cf.land(targetHeight=0.05, duration=2.0)
             timeHelper.sleep(3)
 
-            if cf.position()[2] > 0.01:
+            if cf.positions()[drone_uri][2] > 0.01:
                 cf.land(targetHeight=0.05, duration=2.0)
 
-            if cf.position()[2] > 0.01:
+            if cf.positions()[drone_uri][2] > 0.01:
                 cf.land(targetHeight=0.05, duration=2.0)
 
-            if cf.position()[2] > 0.01:
+            if cf.positions()[drone_uri][2] > 0.01:
                 cf.land(targetHeight=0.05, duration=2.0)
 
-            if cf.position()[2] > 0.01:
+            if cf.positions()[drone_uri][2] > 0.01:
                 cf.land(targetHeight=0.05, duration=2.0)
 
-            if cf.position()[2] > 0.01:
+            if cf.positions()[drone_uri][2] > 0.01:
                 cf.land(targetHeight=0.05, duration=2.0)
 
-            if cf.position()[2] > 0.01:
+            if cf.positions()[drone_uri][2] > 0.01:
                 cf.land(targetHeight=0.05, duration=2.0)
 
             if destination_index == 1 or destination_index == 3:
@@ -428,8 +465,5 @@ def echo(sock):
                     'destination_name': destinations[destination_index].name
                 }))
             start_time = time.time()
+
             continue
-
-
-if __name__ == '__main__':
-    app.run(host='192.168.0.104', port=5000, debug=True)
