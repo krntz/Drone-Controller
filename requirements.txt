@@ -23,6 +23,7 @@ pyqtgraph==0.13.7
 PySDL2==0.9.16
 pysdl2-dll==2.24.0
 pyserial==3.5
+pyjoystick==1.2.4
 pyusb==1.2.1
 pyzmq==25.1.2
 pyjoystick==1.2.4
