@@ -52,7 +52,7 @@ drone2 = True
 
 
 def is_close_to_point():
-    drone_position = cf.positions()[drone_uri]
+    drone_position = cf.positions[drone_uri]
 
     global target_position
     global destination_index
@@ -163,7 +163,7 @@ def echo(sock):
         # DRONE CONTROLS
 
         if action == 'back':
-            if cf.positions()[drone_uri][2] > 0.15:
+            if cf.positions[drone_uri][2] > 0.15:
                 print("Going back...")
                 cf.swarm_move({drone_uri: [-0.1, 0, 0]}, None, 2., True)
                 # time.sleep(2)
@@ -176,7 +176,7 @@ def echo(sock):
                 start_time_action = time.time()
 
         if action == 'forward':
-            if cf.positions()[drone_uri][2] > 0.15:
+            if cf.positions[drone_uri][2] > 0.15:
                 print("going forward...")
                 cf.swarm_move({drone_uri: [0.10, 0, 0]}, None, 2., True)
                 end_time = time.time()
@@ -187,7 +187,7 @@ def echo(sock):
                 start_time_action = time.time()
 
         if action == 'right':
-            if cf.positions()[drone_uri][2] > 0.15:
+            if cf.positions[drone_uri][2] > 0.15:
                 print('Going right...')
                 cf.swarm_move({drone_uri: [0., -0.10, 0]}, None, 2., True)
                 end_time = time.time()
@@ -198,7 +198,7 @@ def echo(sock):
                 start_time_action = time.time()
 
         if action == 'left':
-            if cf.positions()[drone_uri][2] > 0.15:
+            if cf.positions[drone_uri][2] > 0.15:
                 print("Going left..")
                 cf.swarm_move({drone_uri: [0., 0.10, 0]}, None, 2., True)
                 # time.sleep(2)
@@ -221,7 +221,7 @@ def echo(sock):
             start_time_action = time.time()
 
         if action == 'land':
-            drone_position = cf.positions()[drone_uri]
+            drone_position = cf.positions[drone_uri]
             drone_position[0] = -(drone_position[0])
             drone_position[1] = -(drone_position[1])
             drone_position[2] = 0
@@ -231,13 +231,13 @@ def echo(sock):
             cf.swarm_land()
             timeHelper.sleep(3.0)
 
-            if cf.positions()[drone_uri][2] > 0.01:
+            if cf.positions[drone_uri][2] > 0.01:
                 cf.swarm_land()
 
-            if cf.positions()[drone_uri][2] > 0.01:
+            if cf.positions[drone_uri][2] > 0.01:
                 cf.swarm_land()
 
-            if cf.positions()[drone_uri][2] > 0.01:
+            if cf.positions[drone_uri][2] > 0.01:
                 cf.swarm_land()
 
         # Set the failing checkpoint, failing trial is always the third flight in an experimental block.
@@ -264,7 +264,7 @@ def echo(sock):
 
                 cf.swarm_move({drone_uri: [0, 0, .2]}, 0., 2., True)
                 timeHelper.sleep(2)
-                drone_position = cf.positions()[drone_uri]
+                drone_position = cf.positions[drone_uri]
                 drone_position[0] = -(drone_position[0])
                 drone_position[1] = -(drone_position[1])
                 drone_position[2] = 0
@@ -283,19 +283,19 @@ def echo(sock):
                 cf.swarm_land()
                 timeHelper.sleep(3)
 
-                if cf.positions()[drone_uri][2] > 0.01:
+                if cf.positions[drone_uri][2] > 0.01:
                     cf.swarm_land()
 
-                if cf.positions()[drone_uri][2] > 0.01:
+                if cf.positions[drone_uri][2] > 0.01:
                     cf.swarm_land()
 
-                if cf.positions()[drone_uri][2] > 0.01:
+                if cf.positions[drone_uri][2] > 0.01:
                     cf.swarm_land()
 
-                if cf.positions()[drone_uri][2] > 0.01:
+                if cf.positions[drone_uri][2] > 0.01:
                     cf.swarm_land()
 
-                if cf.positions()[drone_uri][2] > 0.01:
+                if cf.positions[drone_uri][2] > 0.01:
                     cf.swarm_land()
 
                 failing_instance = not failing_instance
@@ -339,7 +339,7 @@ def echo(sock):
                         '</strong> SEK this flight session! Please finish the survey. Click <a href="http://192.168.0.100:1231/waiting_room" target="_blank">HERE</a> for the survey.'
                     }))
 
-                    drone_position = cf.positions()[drone_uri]
+                    drone_position = cf.positions[drone_uri]
                     drone_position[0] = -(drone_position[0])
                     drone_position[1] = -(drone_position[1])
                     drone_position[2] = 0
@@ -347,8 +347,8 @@ def echo(sock):
                     cf.swarm_move({drone_uri: drone_position}, 0., 1, True)
                     timeHelper.sleep(2)
 
-                    if cf.positions()[drone_uri][0] > 0.001:
-                        drone_position = cf.positions()[drone_uri]
+                    if cf.positions[drone_uri][0] > 0.001:
+                        drone_position = cf.positions[drone_uri]
                         drone_position[0] = -(drone_position[0])
                         drone_position[1] = -(drone_position[1])
                         drone_position[2] = 0
@@ -358,13 +358,13 @@ def echo(sock):
                     cf.swarm_land()
                     timeHelper.sleep(3)
 
-                    if cf.positions()[drone_uri][2] > 0.01:
+                    if cf.positions[drone_uri][2] > 0.01:
                         cf.swarm_land()
 
-                    if cf.positions()[drone_uri][2] > 0.01:
+                    if cf.positions[drone_uri][2] > 0.01:
                         cf.swarm_land()
 
-                    if cf.positions()[drone_uri][2] > 0.01:
+                    if cf.positions[drone_uri][2] > 0.01:
                         cf.swarm_land()
 
                     break
@@ -376,7 +376,7 @@ def echo(sock):
                         '</strong> SEK in this flight session! You can now do the first part of the survey. Click <a href="http://192.168.0.100:1231/waitingroomone" onclick="document.getElementById(\'surveyModal\').style.display=\'none\'"    target="_blank">HERE</a> for it. When you are done with the first part of the survey, the supervisor will change your drone.'
                     }))
 
-                    drone_position = cf.positions()[drone_uri]
+                    drone_position = cf.positions[drone_uri]
                     drone_position[0] = -(drone_position[0])
                     drone_position[1] = -(drone_position[1])
                     drone_position[2] = 0
@@ -385,8 +385,8 @@ def echo(sock):
                     cf.swarm_move({drone_uri: drone_position}, 0., 1, True)
                     timeHelper.sleep(2)
 
-                    if cf.positions()[drone_uri][0] > 0.1:
-                        drone_position = cf.positions()[drone_uri]
+                    if cf.positions[drone_uri][0] > 0.1:
+                        drone_position = cf.positions[drone_uri]
                         drone_position[0] = -(drone_position[0])
                         drone_position[1] = -(drone_position[1])
                         drone_position[2] = 0
@@ -397,13 +397,13 @@ def echo(sock):
                     cf.swarm_land()
                     timeHelper.sleep(3)
 
-                    if cf.positions()[drone_uri][2] > 0.01:
+                    if cf.positions[drone_uri][2] > 0.01:
                         cf.swarm_land()
 
-                    if cf.positions()[drone_uri][2] > 0.01:
+                    if cf.positions[drone_uri][2] > 0.01:
                         cf.swarm_land()
 
-                    if cf.positions()[drone_uri][2] > 0.01:
+                    if cf.positions[drone_uri][2] > 0.01:
                         cf.swarm_land()
 
                     break
@@ -415,7 +415,7 @@ def echo(sock):
                 }))
 
                 timeHelper.sleep(3)
-                drone_position = cf.positions()[drone_uri]
+                drone_position = cf.positions[drone_uri]
                 drone_position[0] = -(drone_position[0])
                 drone_position[1] = -(drone_position[1])
                 drone_position[2] = 0
@@ -427,7 +427,7 @@ def echo(sock):
                 }))
 
                 timeHelper.sleep(3)
-                drone_position = cf.positions()[drone_uri]
+                drone_position = cf.positions[drone_uri]
                 drone_position[0] = -(drone_position[0])
                 drone_position[1] = -(drone_position[1])
                 drone_position[2] = 0
@@ -436,22 +436,22 @@ def echo(sock):
             cf.swarm_land()
             timeHelper.sleep(3)
 
-            if cf.positions()[drone_uri][2] > 0.01:
+            if cf.positions[drone_uri][2] > 0.01:
                 cf.swarm_land()
 
-            if cf.positions()[drone_uri][2] > 0.01:
+            if cf.positions[drone_uri][2] > 0.01:
                 cf.swarm_land()
 
-            if cf.positions()[drone_uri][2] > 0.01:
+            if cf.positions[drone_uri][2] > 0.01:
                 cf.swarm_land()
 
-            if cf.positions()[drone_uri][2] > 0.01:
+            if cf.positions[drone_uri][2] > 0.01:
                 cf.swarm_land()
 
-            if cf.positions()[drone_uri][2] > 0.01:
+            if cf.positions[drone_uri][2] > 0.01:
                 cf.swarm_land()
 
-            if cf.positions()[drone_uri][2] > 0.01:
+            if cf.positions[drone_uri][2] > 0.01:
                 cf.swarm_land()
 
             if destination_index == 1 or destination_index == 3:
