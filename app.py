@@ -11,12 +11,10 @@ from flask_sock import Sock
 from controllers.crazyflieController import CrazyflieController
 from controllers.utils.utils import FlightZone
 
-import logging
-
 logger = logging.getLogger(__name__)
-logging.basicConfig(filename='movements.log', 
-                    filemode='a', 
-                    encoding='utf-8', 
+logging.basicConfig(filename='movements.log',
+                    filemode='a',
+                    encoding='utf-8',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
                     datefmt='%H:%M:%S',
                     level=logging.INFO)
@@ -60,12 +58,13 @@ drone2 = True
 
 
 def is_close_to_point():
-    drone_position = cf.positions[drone_uri]
-
     global target_position
     global destination_index
     global goal_reached
     global score  # Declare score as a global variable
+
+    drone_position = cf.positions[drone_uri]
+
     dx = drone_position[0] - target_position[0]
     dy = drone_position[1] - target_position[1]
     dz = drone_position[2] - target_position[2]
@@ -74,13 +73,19 @@ def is_close_to_point():
     if threshold >= distance:
         if target_position == destinations[destination_index].hard_location:
             score += 15
-            logging.info("score 15\n " + str(destinations[destination_index].name))
+            logging.info("score 15\n " +
+                         str(destinations[destination_index].name))
+
         if target_position == destinations[destination_index].default_location:
             score += 10
-            logging.info("default score 10\n " + str(destinations[destination_index].name))
+            logging.info("default score 10\n " +
+                         str(destinations[destination_index].name))
+
         if target_position == destinations[destination_index].easy_location:
             score += 5
-            logging.info("score 5\n " + str(destinations[destination_index].name))
+            logging.info("score 5\n " +
+                         str(destinations[destination_index].name))
+
         if len(destinations) - 1 == destination_index:
             goal_reached = True
         elif destination_index < len(destinations) - 1:
@@ -89,6 +94,15 @@ def is_close_to_point():
         return True
     else:
         return False
+
+
+def move_home():
+    drone_position = cf.positions[drone_uri]
+    drone_position[0] = -(drone_position[0])
+    drone_position[1] = -(drone_position[1])
+    drone_position[2] = 0
+
+    cf.swarm_move({drone_uri: drone_position}, None, 2, True)
 
 
 @app.route('/')
@@ -159,67 +173,33 @@ def echo(sock):
 
         # DRONE CONTROLS
 
-        if action == 'back':
-            if cf.positions[drone_uri][2] > 0.15:
+        if cf.positions[drone_uri][2] > 0.15:
+            if action == 'back':
                 print("Going back...")
                 cf.swarm_move({drone_uri: [-0.1, 0, 0]}, None, 2., True)
-                end_time = time.time()
-                elapsed_time = end_time - start_time_action
-                logger.info("Elapsed time since last action: {:.2f} seconds".format(elapsed_time))
-                start_time_action = time.time()
-
-        if action == 'forward':
-            if cf.positions[drone_uri][2] > 0.15:
+            elif action == 'forward':
                 print("going forward...")
                 cf.swarm_move({drone_uri: [0.10, 0, 0]}, None, 2., True)
-                end_time = time.time()
-                elapsed_time = end_time - start_time_action
-                logger.info("Elapsed time since last action: {:.2f} seconds".format(elapsed_time))
-                start_time_action = time.time()
-
-        if action == 'right':
-            if cf.positions[drone_uri][2] > 0.15:
+            elif action == 'right':
                 print('Going right...')
                 cf.swarm_move({drone_uri: [0., -0.10, 0]}, None, 2., True)
-                end_time = time.time()
-                elapsed_time = end_time - start_time_action
-                logger.info("Elapsed time since last action: {:.2f} seconds".format(elapsed_time))
-                start_time_action = time.time()
-
-        if action == 'left':
-            if cf.positions[drone_uri][2] > 0.15:
+            elif action == 'left':
                 print("Going left..")
                 cf.swarm_move({drone_uri: [0., 0.10, 0]}, None, 2., True)
-                end_time = time.time()
-                elapsed_time = end_time - start_time_action
-                logger.info("Elapsed time since last action: {:.2f} seconds".format(elapsed_time))
-                start_time_action = time.time()
 
         if action == 'take off':
             print('take off....')
             cf.swarm_take_off()
-            end_time = time.time()
-            elapsed_time = end_time - start_time_action
-            logger.info("Elapsed time since last action: {:.2f} seconds".format(elapsed_time))
-            start_time_action = time.time()
-
-        if action == 'land':
-            drone_position = cf.positions[drone_uri]
-            drone_position[0] = -(drone_position[0])
-            drone_position[1] = -(drone_position[1])
-            drone_position[2] = 0
-            cf.swarm_move({drone_uri: drone_position}, 0., 1., True)
+        elif action == 'land':
+            move_home()
             print('...landing, please wait')
             cf.swarm_land()
 
-            if cf.positions[drone_uri][2] > 0.01:
-                cf.swarm_land()
-
-            if cf.positions[drone_uri][2] > 0.01:
-                cf.swarm_land()
-
-            if cf.positions[drone_uri][2] > 0.01:
-                cf.swarm_land()
+        end_time = time.time()
+        elapsed_time = end_time - start_time_action
+        logger.info(
+            "Elapsed time since last action: {:.2f} seconds".format(elapsed_time))
+        start_time_action = time.time()
 
         # Set the failing checkpoint, failing trial is always the third flight in an experimental block.
         # Will be randomized with the help of random.org.
@@ -235,7 +215,7 @@ def echo(sock):
 
                 cf.swarm_move({drone_uri: [0, 0, .2]}, 0., 2., True)
 
-            if failing_counter == 6:
+            elif failing_counter == 6:
                 destination_index = destination_index + 1
                 sock.send(json.dumps({
                     'action': 'failure',
@@ -243,34 +223,17 @@ def echo(sock):
                 }))
 
                 cf.swarm_move({drone_uri: [0, 0, .2]}, 0., 2., True)
-                drone_position = cf.positions[drone_uri]
-                drone_position[0] = -(drone_position[0])
-                drone_position[1] = -(drone_position[1])
-                drone_position[2] = 0
 
                 logger.info("FAILURE\n")
                 end_time = time.time()
                 elapsed_time = end_time - start_time
 
-                logger.info("Elapsed time: {:.2f} seconds".format(elapsed_time))
-                cf.swarm_move({drone_uri: drone_position}, None, 2, True)
+                logger.info(
+                    "Elapsed time: {:.2f} seconds".format(elapsed_time))
+
+                move_home()
 
                 cf.swarm_land()
-
-                if cf.positions[drone_uri][2] > 0.01:
-                    cf.swarm_land()
-
-                if cf.positions[drone_uri][2] > 0.01:
-                    cf.swarm_land()
-
-                if cf.positions[drone_uri][2] > 0.01:
-                    cf.swarm_land()
-
-                if cf.positions[drone_uri][2] > 0.01:
-                    cf.swarm_land()
-
-                if cf.positions[drone_uri][2] > 0.01:
-                    cf.swarm_land()
 
                 failing_instance = not failing_instance
                 failing_counter = 0
@@ -310,32 +273,9 @@ def echo(sock):
                         '</strong> SEK this flight session! Please finish the survey. Click <a href="http://192.168.0.100:1231/waiting_room" target="_blank">HERE</a> for the survey.'
                     }))
 
-                    drone_position = cf.positions[drone_uri]
-                    drone_position[0] = -(drone_position[0])
-                    drone_position[1] = -(drone_position[1])
-                    drone_position[2] = 0
                     print('...landing, please wait')
-                    cf.swarm_move({drone_uri: drone_position}, 0., 1, True)
-
-                    if cf.positions[drone_uri][0] > 0.001:
-                        drone_position = cf.positions[drone_uri]
-                        drone_position[0] = -(drone_position[0])
-                        drone_position[1] = -(drone_position[1])
-                        drone_position[2] = 0
-                        cf.swarm_move(
-                            {drone_uri: drone_position}, 0., 1., True)
-
+                    move_home()
                     cf.swarm_land()
-
-                    if cf.positions[drone_uri][2] > 0.01:
-                        cf.swarm_land()
-
-                    if cf.positions[drone_uri][2] > 0.01:
-                        cf.swarm_land()
-
-                    if cf.positions[drone_uri][2] > 0.01:
-                        cf.swarm_land()
-
                     break
                 else:
                     sock.send(json.dumps({
@@ -345,32 +285,9 @@ def echo(sock):
                         '</strong> SEK in this flight session! You can now do the first part of the survey. Click <a href="http://192.168.0.100:1231/waitingroomone" onclick="document.getElementById(\'surveyModal\').style.display=\'none\'"    target="_blank">HERE</a> for it. When you are done with the first part of the survey, the supervisor will change your drone.'
                     }))
 
-                    drone_position = cf.positions[drone_uri]
-                    drone_position[0] = -(drone_position[0])
-                    drone_position[1] = -(drone_position[1])
-                    drone_position[2] = 0
                     print('...landing, please wait')
-
-                    cf.swarm_move({drone_uri: drone_position}, 0., 1, True)
-
-                    if cf.positions[drone_uri][0] > 0.1:
-                        drone_position = cf.positions[drone_uri]
-                        drone_position[0] = -(drone_position[0])
-                        drone_position[1] = -(drone_position[1])
-                        drone_position[2] = 0
-                        cf.swarm_move(
-                            {drone_uri: drone_position}, 0., 1., True)
-
+                    move_home()
                     cf.swarm_land()
-
-                    if cf.positions[drone_uri][2] > 0.01:
-                        cf.swarm_land()
-
-                    if cf.positions[drone_uri][2] > 0.01:
-                        cf.swarm_land()
-
-                    if cf.positions[drone_uri][2] > 0.01:
-                        cf.swarm_land()
                     break
 
             if destination_index == 1:
@@ -380,11 +297,7 @@ def echo(sock):
                 }))
 
                 time.sleep(3)
-                drone_position = cf.positions[drone_uri]
-                drone_position[0] = -(drone_position[0])
-                drone_position[1] = -(drone_position[1])
-                drone_position[2] = 0
-                cf.swarm_move({drone_uri: drone_position}, 0., 2., True)
+                move_home()
             else:
                 sock.send(json.dumps({
                     'action': 'goal',
@@ -392,31 +305,9 @@ def echo(sock):
                 }))
 
                 time.sleep(3)
-                drone_position = cf.positions[drone_uri]
-                drone_position[0] = -(drone_position[0])
-                drone_position[1] = -(drone_position[1])
-                drone_position[2] = 0
-                cf.swarm_move({drone_uri: drone_position}, 0., 2., True)
+                move_home()
 
             cf.swarm_land()
-
-            if cf.positions[drone_uri][2] > 0.01:
-                cf.swarm_land()
-
-            if cf.positions[drone_uri][2] > 0.01:
-                cf.swarm_land()
-
-            if cf.positions[drone_uri][2] > 0.01:
-                cf.swarm_land()
-
-            if cf.positions[drone_uri][2] > 0.01:
-                cf.swarm_land()
-
-            if cf.positions[drone_uri][2] > 0.01:
-                cf.swarm_land()
-
-            if cf.positions[drone_uri][2] > 0.01:
-                cf.swarm_land()
 
             if destination_index == 1 or destination_index == 3:
                 time.sleep(2)
