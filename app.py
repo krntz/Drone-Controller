@@ -297,7 +297,6 @@ def echo(sock):
                     print('...landing, please wait')
                     move_home()
                     cf.swarm_land()
-
                     break
 
             if destination_index == 1:
