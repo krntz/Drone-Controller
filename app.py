@@ -46,42 +46,38 @@ destinations = [
 ]
 
 random.shuffle(destinations)
+
 target_position = destinations[0].default_location
 destination_index = 0
 threshold = 0.24
-score = 0
+score = 0  # participant's total score
 failing_instance = False
 failing_counter = 0
 drone2 = True
-
-# FUNCTION THAT CHECKS IF GOAL IS REACHED
 
 
 def is_close_to_point():
     global target_position
     global destination_index
     global goal_reached
-    global score  # Declare score as a global variable
+    global score
 
     drone_position = cf.positions[drone_uri]
-
     dx = drone_position[0] - target_position[0]
     dy = drone_position[1] - target_position[1]
     dz = drone_position[2] - target_position[2]
     distance = math.sqrt(dx**2 + dy**2 + dz**2)
 
-    if threshold >= distance:
+    if distance < threshold:
         if target_position == destinations[destination_index].hard_location:
             score += 15
             logging.info("score 15\n " +
                          str(destinations[destination_index].name))
-
-        if target_position == destinations[destination_index].default_location:
+        elif target_position == destinations[destination_index].default_location:
             score += 10
             logging.info("default score 10\n " +
                          str(destinations[destination_index].name))
-
-        if target_position == destinations[destination_index].easy_location:
+        elif target_position == destinations[destination_index].easy_location:
             score += 5
             logging.info("score 5\n " +
                          str(destinations[destination_index].name))
@@ -216,7 +212,7 @@ def echo(sock):
                 cf.swarm_move({drone_uri: [0, 0, .2]}, 0., 2., True)
 
             elif failing_counter == 6:
-                destination_index = destination_index + 1
+                destination_index += 1
                 sock.send(json.dumps({
                     'action': 'failure',
                     'message': '⚠️ <strong> <span style="color: red;"> ATTENTION </span> </strong> ⚠️ <br/><strong> DRONE SIGNAL FAILURE </strong> <br/> Cannot complete checkpoint'
@@ -248,7 +244,7 @@ def echo(sock):
 
                 continue
 
-            failing_counter = failing_counter + 1
+            failing_counter += 1
 
         # CHECK IF GOAL IS REACHED
 
@@ -276,6 +272,7 @@ def echo(sock):
                     print('...landing, please wait')
                     move_home()
                     cf.swarm_land()
+
                     break
                 else:
                     sock.send(json.dumps({
@@ -288,6 +285,7 @@ def echo(sock):
                     print('...landing, please wait')
                     move_home()
                     cf.swarm_land()
+
                     break
 
             if destination_index == 1:
