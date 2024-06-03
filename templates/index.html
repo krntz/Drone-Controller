@@ -1,312 +1,235 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Drone</title>
-   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mystyle.css') }}"> 
-  </head>
-  
-  <script>
-   
-     var socket = new WebSocket('ws://' + location.host + '/action');
-     var difficulty = 'Not set';
+    <head>
+        <title>Drone</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mystyle.css') }}"> 
+    </head>
 
-     socket.addEventListener('open', function (event) {
-	     console.log("[open] Connection established");
-     });
+    <script>
 
-     socket.addEventListener('message', function (event) {
-	     var data = JSON.parse(event.data);
-       if (data.action == 'default') {
-       
-
-       // Store the hexagoncolor
-       hexagon_color = 'BLUE';
-
-
-   // Update the difficulty display
-
-   // Determine the color of the text based on hexagon_color
-      if (hexagon_color === "RED") {
-        textColor = "red";
-      } else if (hexagon_color === "BLUE") {
-        textColor = "#0099ff";
-      } else if (hexagon_color === "GREEN") {
-        textColor = "green";
-      } else {
-        textColor = "black"; // Default color
-      }
-
-   
-       //document.getElementById('difficultyDisplay').textContent = "NEXT DESTINATION IS THE" + hexagon_color+ " HEXAGON AT CHECKPOINT "+data.destination_name;
-       difficultyDisplay.innerHTML = "NEXT DESTINATION IS THE <span style='color: " + textColor + "'>" + hexagon_color+ " HEXAGON </span>  AT CHECKPOINT " + data.destination_name;
-
-    }
-
-
-
-
-
-
-
-	     if (data.action == 'score') {
-		     document.getElementById('score').textContent = + data.value + " KR";
-	     }
-
-       if (data.action == 'finish') {
-        document.getElementById('surveyText').innerHTML = data.message;
-            document.getElementById('surveyModal').style.display = 'block';
-
-       }
-
-       if (data.action == 'failure') {
-
-            document.getElementById('failureText').innerHTML = data.message;
-            document.getElementById('failureAlert').style.display = 'block';
-
-            
-            
-            setTimeout(function () {
-            failureAlert.style.display = 'none';
-          }, 8000);
-
-        
-       }
-
-
-       if (data.action == 'welcome') {
-
-            document.getElementById('alertText').innerHTML = data.message;
-            document.getElementById('customAlert').style.display = 'block';
-
-
-
-          setTimeout(function () {
-            customAlert.style.display = 'none';
-
-          }, 8000);
-
-
-}
-
-       if (data.action == 'goal') {
-      
-        if(data.message.includes("http")){
-            // Display the survey modal instead of the custom alert
-            document.getElementById('surveyText').innerHTML = data.message;
-            document.getElementById('surveyModal').style.display = 'block';
-        } else {
-            document.getElementById('alertText').innerHTML = data.message;
-            document.getElementById('customAlert').style.display = 'block';
-            
-            
-            setTimeout(function () {
-            customAlert.style.display = 'none';
-          }, 3000);
-        }
-      }
-
-    if (data.action == 'select_location') {
-  // Show the modal
-  var modal = document.getElementById("myModal");
-  modal.style.display = "block";
-
-  // Set the checkpoint name
-  var checkpoint = document.getElementById("checkpoint");
-  checkpoint.textContent = "Next destination is checkpoint " + data.destination_name + ".";
-
-  // Get the buttons and add click events
-  var btns = document.getElementsByClassName("choice-btn");
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].onclick = function(e) {
-      // Send the user's choice back to the server
-      var choice = e.target.value;
-      socket.send(JSON.stringify({ action: 'select_location_choice', choice: choice }));
-
-    // Store the hexagoncolor
-    hexagon_color = choice == 'easy' ? 'GREEN' : 'RED';
-
-// Update the difficulty display
-    // Determine the color of the text based on hexagon_color
-    if (hexagon_color === "RED") {
-        textColor = "red";
-      } else if (hexagon_color === "BLUE") {
-        textColor = "#0099ff";
-      } else if (hexagon_color === "GREEN") {
-        textColor = "green";
-      } else {
-        textColor = "black"; // Default color
-      }
-
-   
-       //document.getElementById('difficultyDisplay').textContent = "NEXT DESTINATION IS THE" + hexagon_color+ " HEXAGON AT CHECKPOINT "+data.destination_name;
-       difficultyDisplay.innerHTML = "NEXT DESTINATION IS THE <span style='color: " + textColor + "'>" + hexagon_color+ " HEXAGON </span>  AT CHECKPOINT " + data.destination_name;
-
-
-      // Hide the modal
-      modal.style.display = "none";
-    }
-  }
-}
-
-    
-     });
-     function sendText(button) {
-      var text = button.value; // Get the value of the button
-      var message = JSON.stringify({ action: text }); // Convert to JSON
-      socket.send(message); // Send the text to the server
-      // Get all buttons
-      var buttons = document.querySelectorAll("button");
-
-      // Add a 'hide' class to all buttons
-      buttons.forEach(function(btn) {
-        btn.classList.add("hide");
-      });
-
-      // Remove the 'hide' class after 1 second
-      setTimeout(function() {
-        buttons.forEach(function(btn) {
-          btn.classList.remove("hide");
+        var socket = new WebSocket('ws://' + location.host + '/action');
+        var difficulty = 'Not set';
+        socket.addEventListener('open', function (event) {
+            console.log("[open] Connection established");
         });
-      }, 2000);
-          }
-   </script>
-  <body>
-<div id="log"></div>
-    <br>
+        socket.addEventListener('message', function (event) {
+            var data = JSON.parse(event.data);
+            if (data.action == 'default') {
+
+                // Store the hexagoncolor
+                hexagon_color = 'BLUE';
+                // Update the difficulty display
+                // Determine the color of the text based on hexagon_color
+                if (hexagon_color === "RED") {
+                    textColor = "red";
+                } else if (hexagon_color === "BLUE") {
+                    textColor = "#0099ff";
+                } else if (hexagon_color === "GREEN") {
+                    textColor = "green";
+                } else {
+                    textColor = "black"; // Default color
+                }
+
+                difficultyDisplay.innerHTML = "NEXT DESTINATION IS THE <span style='color: " + textColor + "'>" + hexagon_color+ " HEXAGON </span>  AT CHECKPOINT " + data.destination_name;
+            }
+            if (data.action == 'score') {
+                document.getElementById('score').textContent = + data.value + " KR";
+            }
+            if (data.action == 'finish') {
+                document.getElementById('surveyText').innerHTML = data.message;
+                document.getElementById('surveyModal').style.display = 'block';
+            }
+            if (data.action == 'failure') {
+                document.getElementById('failureText').innerHTML = data.message;
+                document.getElementById('failureAlert').style.display = 'block';
 
 
-   
+                setTimeout(function () {
+                    failureAlert.style.display = 'none';
+                }, 8000);
 
-    <div class="container">
-     
-      <div class="button-container">
-        <div class="stopwatchcontainer">
-          <span id="stopwatch" >Time: 04:00</span>
+            }
+            if (data.action == 'welcome') {
+                document.getElementById('alertText').innerHTML = data.message;
+                document.getElementById('customAlert').style.display = 'block';
+                setTimeout(function () {
+                    customAlert.style.display = 'none';
+                }, 8000);
+            }
+            if (data.action == 'goal') {
+
+                if(data.message.includes("http")){
+                    // Display the survey modal instead of the custom alert
+                    document.getElementById('surveyText').innerHTML = data.message;
+                    document.getElementById('surveyModal').style.display = 'block';
+                } else {
+                    document.getElementById('alertText').innerHTML = data.message;
+                    document.getElementById('customAlert').style.display = 'block';
+
+
+                    setTimeout(function () {
+                        customAlert.style.display = 'none';
+                    }, 3000);
+                }
+            }
+            if (data.action == 'select_location') {
+                // Show the modal
+                var modal = document.getElementById("myModal");
+                modal.style.display = "block";
+                // Set the checkpoint name
+                var checkpoint = document.getElementById("checkpoint");
+                checkpoint.textContent = "Next destination is checkpoint " + data.destination_name + ".";
+                // Get the buttons and add click events
+                var btns = document.getElementsByClassName("choice-btn");
+                for (var i = 0; i < btns.length; i++) {
+                    btns[i].onclick = function(e) {
+                        // Send the user's choice back to the server
+                        var choice = e.target.value;
+                        socket.send(JSON.stringify({ action: 'select_location_choice', choice: choice }));
+                        // Store the hexagoncolor
+                        hexagon_color = choice == 'easy' ? 'GREEN' : 'RED';
+                        // Update the difficulty display
+                        // Determine the color of the text based on hexagon_color
+                        if (hexagon_color === "RED") {
+                            textColor = "red";
+                        } else if (hexagon_color === "BLUE") {
+                            textColor = "#0099ff";
+                        } else if (hexagon_color === "GREEN") {
+                            textColor = "green";
+                        } else {
+                            textColor = "black"; // Default color
+                        }
+
+                        difficultyDisplay.innerHTML = "NEXT DESTINATION IS THE <span style='color: " + textColor + "'>" + hexagon_color+ " HEXAGON </span>  AT CHECKPOINT " + data.destination_name;
+                        // Hide the modal
+                        modal.style.display = "none";
+                    }
+                }
+            }
+
+        });
+        function sendText(button) {
+            var text = button.value; // Get the value of the button
+            var message = JSON.stringify({ action: text }); // Convert to JSON
+            socket.send(message); // Send the text to the server
+            // Get all buttons
+            var buttons = document.querySelectorAll("button");
+            // Add a 'hide' class to all buttons
+            buttons.forEach(function(btn) {
+                btn.classList.add("hide");
+            });
+            // Remove the 'hide' class after 1 second
+            setTimeout(function() {
+                buttons.forEach(function(btn) {
+                    btn.classList.remove("hide");
+                });
+            }, 2000);
+        }
+    </script>
+    <body>
+        <div id="log"></div>
+        <br>
+
+        <div class="container">
+
+            <div class="button-container">
+                <div class="stopwatchcontainer">
+                    <span id="stopwatch" >Time: 04:00</span>
+                </div>
+                <span id="difficultyDisplay">Difficulty not set</span>
+
+                <div class="score-container">
+                    <div id="score">0 KR</div>
+                </div>
+
+
+            </div>
+            <div><button class="btn" value="forward" onclick="sendText(this)">Forward</button></div>
+            <div class="button-container">
+                <button class="btn" value="left" onclick="sendText(this)">Left</button>
+                <button class="btn" value="right" onclick="sendText(this)">Right</button>
+            </div>
+            <div>
+                <button class="btn" value="back" onclick="sendText(this)">Back</button>
+            </div>
+
+
         </div>
-     <span id="difficultyDisplay">Difficulty not set</span>
-      
-      <div class="score-container">
-        <div id="score">0 KR</div>
-      </div>
+        <div class="container">
+            <div class="button-container2" id="btn2-container">
+                <button class="btnTO" value="take off" onclick="sendText(this)">Take off</button>
 
-        
-        
-      </div>
-      <div><button class="btn" value="forward" onclick="sendText(this)">Forward</button></div>
-      <div class="button-container">
-    <button class="btn" value="left" onclick="sendText(this)">Left</button>
-  <button class="btn" value="right" onclick="sendText(this)">Right</button>
-  </div>
-  <div>
-  <button class="btn" value="back" onclick="sendText(this)">Back</button>
-</div>
-  
- 
+            </div>
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <h2 id="checkpoint"></h2>
+                <p>Do you want to fly above the easy (big) or hard (small) hexagon?</p>
+                <button class="choice-btn" value="easy">Easy</button>
+                <button class="choice-btn" value="hard">Hard</button>
+            </div>
+        </div>
+        <!-- The custom alert box -->
+        <div id="customAlert" class="custom-alert">
 
-</div>
+            <div class="custom-alert-content">
+                <p id="alertText"></p>
+            </div>
 
+        </div>
+        <!-- The custom alert box -->
+        <div id="failureAlert" class="failure-alert">
 
+            <div class="failure-alert-content">
+                <p id="failureText"></p>
+            </div>
 
-<div class="container">
-  <div class="button-container2" id="btn2-container">
-  <button class="btnTO" value="take off" onclick="sendText(this)">Take off</button>
-  
-</div>
-</div>
+        </div>
 
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <h2 id="checkpoint"></h2>
-    <p>Do you want to fly above the easy (big) or hard (small) hexagon?</p>
-    <button class="choice-btn" value="easy">Easy</button>
-    <button class="choice-btn" value="hard">Hard</button>
-  </div>
-</div>
-
-  <!-- The custom alert box -->
-  <div id="customAlert" class="custom-alert">
-   
-    <div class="custom-alert-content">
-      <p id="alertText"></p>
-    </div>
-    
-  </div>
-
-
-    <!-- The custom alert box -->
-    <div id="failureAlert" class="failure-alert">
-   
-      <div class="failure-alert-content">
-        <p id="failureText"></p>
-      </div>
-      
-    </div>
-
- 
-
-  <!-- The survey alert box -->
-<div id="surveyModal" class="modal">
-  <div class="modal-content">
-      <p id="surveyText"></p>
-  </div>
-</div>
-
-
-
-
-  <script>
-
-var stopwatchDisplay = document.getElementById('stopwatch');
-
-
-var minutes = 4;
-var seconds = 0;
-
-// Update the stopwatch display every second
-var countdownInterval = setInterval(function() {
-  if (minutes === 0 && seconds === 0) {
-    // Timer has reached 0:00, handle the countdown completion here
-    clearInterval(countdownInterval);
-    var time = padZero(minutes) + ':' + padZero(seconds);
-
-    stopwatchDisplay.textContent = 'Time: ' + time;
-    // Add your desired code to execute when the countdown reaches 0:00
-    stopwatchDisplay.classList.add('blinking');
-
-     // Reset the score to 0
-     scoreValue = 0;
-
-    // Update the score display
-    document.getElementById('score').textContent = scoreValue + " KR";
+        <!-- The survey alert box -->
+        <div id="surveyModal" class="modal">
+            <div class="modal-content">
+                <p id="surveyText"></p>
+            </div>
+        </div>
+        <script>
+            var stopwatchDisplay = document.getElementById('stopwatch');
+            var minutes = 4;
+            var seconds = 0;
+            // Update the stopwatch display every second
+            var countdownInterval = setInterval(function() {
+                if (minutes === 0 && seconds === 0) {
+                    // Timer has reached 0:00, handle the countdown completion here
+                    clearInterval(countdownInterval);
+                    var time = padZero(minutes) + ':' + padZero(seconds);
+                    stopwatchDisplay.textContent = 'Time: ' + time;
+                    // Add your desired code to execute when the countdown reaches 0:00
+                    stopwatchDisplay.classList.add('blinking');
+                    // Reset the score to 0
+                    scoreValue = 0;
+                    // Update the score display
+                    document.getElementById('score').textContent = scoreValue + " KR";
+                    socket.send(JSON.stringify({ action: 'score', score: scoreValue}));
+                    return;
+                }
+                // Format the time as MM:SS
+                var time = padZero(minutes) + ':' + padZero(seconds);
+                // Update the stopwatch display
+                stopwatchDisplay.textContent = 'Time: ' + time;
+                // Decrement the seconds
+                if (seconds > 0) {
+                    seconds--;
+                } else {
+                    seconds = 59;
+                    minutes--;
+                }
+            }, 1000);
+            // Helper function to pad a single digit number with a leading zero
+            function padZero(num) {
+                return (num < 10 ? '0' : '') + num;
+            }
+        </script>
+    </body>
 
 
-    socket.send(JSON.stringify({ action: 'score', score: scoreValue}));
-    return;
-
-  }
-
-  // Format the time as MM:SS
-  var time = padZero(minutes) + ':' + padZero(seconds);
-
-  // Update the stopwatch display
-  stopwatchDisplay.textContent = 'Time: ' + time;
-
-  // Decrement the seconds
-  if (seconds > 0) {
-    seconds--;
-  } else {
-    seconds = 59;
-    minutes--;
-  }
-}, 1000);
-
-// Helper function to pad a single digit number with a leading zero
-function padZero(num) {
-  return (num < 10 ? '0' : '') + num;
-}
-
-</script>
-     </body>
-    
-    
 </html>
