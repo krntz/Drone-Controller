@@ -39,10 +39,22 @@ class Destination:
 
 # Destinations have a name, easy_location, hard_location
 destinations = [
-    Destination("A", [0.60, 0.3, .5], [0.6, -0.3, .5], [1., 0, 0.5]),
-    Destination("D", [0.3, -0.6, .5], [-0.3, -0.6, .5], [0, -1.0, .5]),
-    Destination("B", [-0.6, 0.60, .4], [0.3, 0.6, .5], [0, 1., .5]),
-    Destination("C", [-0.6, -0.3, .5], [-0.6, 0.3, .5], [-1., 0.0, .5])
+    Destination(name="A",
+                easy_location=[0.6, 0.3, 0.5],
+                hard_location=[0.6, -0.3, 0.5],
+                default_location=[1.0, 0.0, 0.5]),
+    Destination(name="B",
+                easy_location=[-0.6, 0.60, 0.4],
+                hard_location=[0.3, 0.6, 0.5],
+                default_location=[0.0, 1.0, 0.5]),
+    Destination(name="C",
+                easy_location=[-0.6, -0.3, 0.5],
+                hard_location=[-0.6, 0.3, 0.5],
+                default_location=[-1.0, 0.0, 0.5]),
+    Destination(name="D",
+                easy_location=[0.3, -0.6, 0.5],
+                hard_location=[-0.3, -0.6, 0.5],
+                default_location=[0.0, -1.0, 0.5])
 ]
 
 random.shuffle(destinations)
