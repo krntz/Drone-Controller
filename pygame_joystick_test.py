@@ -1,4 +1,5 @@
 import logging
+from collections import deque
 
 import pygame
 
@@ -9,67 +10,70 @@ logger = logging.getLogger(__name__)
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=logging.DEBUG)
 
     max_vel = 10  # m/s
 
     drone_uri = 'radio://0/80/2M/E7E7E7E7E0'
     flight_zone = FlightZone(2.0, 3.0, 1.25, 0.30)
-    cf = CrazyflieController({drone_uri}, flight_zone, drone_uri)
 
-    pygame.init()
-    pygame.joystick.init()
-    clock = pygame.time.Clock()
-    FPS = 60
-    joysticks = []
+    with CrazyflieController({drone_uri}, flight_zone, drone_uri) as cf:
+        pygame.init()
+        pygame.joystick.init()
+        clock = pygame.time.Clock()
+        FPS = 60
+        joysticks = []
 
-    run = True
+        run = True
 
-    while run:
-        # get the number of seconds since last loop
-        dt = clock.tick(FPS) / 1000.0
+        # keep track of 10 most recent inputs for smoothing of analog signal
+        num_readings = 10
+        vert_inputs = deque(maxlen=num_readings)
+        hor_inputs = deque(maxlen=num_readings)
 
-        for joystick in joysticks:
-            if joystick.get_button(0):
-                if not cf.swarm_flying:
-                    cf.swarm_take_off()
-                else:
-                    cf.swarm_land()
-            elif joystick.get_button(1):
-                print("Quitting...")
-                run = False
+        logger.info("Ready to go!")
 
-            # player movement with analogue sticks
+        while run:
+            clock.tick(FPS)
 
-            horiz_move = joystick.get_axis(0)
-            vert_move = joystick.get_axis(1)
+            for joystick in joysticks:
+                if joystick.get_button(0):
+                    if not cf.swarm_flying:
+                        cf.swarm_take_off()
+                    else:
+                        cf.swarm_land()
+                elif joystick.get_button(1):
+                    print("Quitting...")
+                    run = False
 
-            # new velocity is a percentage of the maximum velocity, scaled
-            # by the number of seconds since the last tick
+                if cf.swarm_flying:
+                    # player movement with analogue sticks
 
-            # TODO 2024-06-03: Need calculate velocity for each axis and
-            # then update them all together with set_velocities()
+                    # TODO 2024-06-04: The amount of "available" velocity should
+                    # be limited as the drone gets closer to the edges of the
+                    # flight zone
 
-            if abs(vert_move) > 0.05:
-                new_vert_vel = (vert_move * max_vel) * dt
-                print("Vert velocity: {}".format(new_vert_vel))
-                # y += vert_move * 5
+                    hor_inputs.append(-joystick.get_axis(0))
+                    vert_inputs.append(-joystick.get_axis(1))
 
-            if abs(horiz_move) > 0.05:
-                new_horiz_vel = (horiz_move * max_vel) * dt
-                print("Horiz velocity: {}".format(new_horiz_vel))
-                # x += horiz_move * 5
+                    new_vert_vel = sum(vert_inputs) / len(vert_inputs)
+                    print("Vert velocity: {}".format(new_vert_vel))
+                    new_hor_vel = sum(hor_inputs) / len(hor_inputs)
+                    print("Horiz velocity: {}".format(new_hor_vel))
 
-        for event in pygame.event.get():
-            # event handler
+                    cf.set_swarm_velocities(
+                        {drone_uri: [new_vert_vel, new_hor_vel, 0]}, 0)
 
-            if event.type == pygame.JOYDEVICEADDED:
-                joy = pygame.joystick.Joystick(event.device_index)
-                joysticks.append(joy)
+            for event in pygame.event.get():
+                # event handler
 
-            if event.type == pygame.QUIT:
-                # quit program
-                run = False
+                if event.type == pygame.JOYDEVICEADDED:
+                    logger.info("Joystick added")
+                    joy = pygame.joystick.Joystick(event.device_index)
+                    joysticks.append(joy)
 
-    pygame.quit()
-    del cf
+                if event.type == pygame.QUIT:
+                    # quit program
+                    run = False
+
+        pygame.quit()
