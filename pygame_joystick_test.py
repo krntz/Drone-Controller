@@ -22,6 +22,7 @@ if __name__ == "__main__":
         pygame.joystick.init()
         clock = pygame.time.Clock()
         FPS = 60
+        turn_rate = 60  # degrees
         joysticks = []
 
         run = True
@@ -30,6 +31,7 @@ if __name__ == "__main__":
         num_readings = 10
         vert_inputs = deque(maxlen=num_readings)
         hor_inputs = deque(maxlen=num_readings)
+        yaw_inputs = deque(maxlen=num_readings)
 
         logger.info("Ready to go!")
 
@@ -43,7 +45,7 @@ if __name__ == "__main__":
                     else:
                         cf.swarm_land()
                 elif joystick.get_button(1):
-                    print("Quitting...")
+                    logger.info("Quitting...")
                     run = False
 
                 if cf.swarm_flying:
@@ -55,14 +57,31 @@ if __name__ == "__main__":
 
                     hor_inputs.append(-joystick.get_axis(0))
                     vert_inputs.append(-joystick.get_axis(1))
+                    yaw_inputs.append(-joystick.get_axis(2))
 
                     new_vert_vel = sum(vert_inputs) / len(vert_inputs)
-                    print("Vert velocity: {}".format(new_vert_vel))
+
+                    if abs(new_vert_vel) < 0.05:
+                        new_vert_vel = 0
+                    logger.debug("Vert velocity: {}".format(new_vert_vel))
+
                     new_hor_vel = sum(hor_inputs) / len(hor_inputs)
-                    print("Horiz velocity: {}".format(new_hor_vel))
+
+                    if abs(new_hor_vel) < 0.05:
+                        new_hor_vel = 0
+                    logger.debug("Horiz velocity: {}".format(new_hor_vel))
+
+                    # TODO 2024-06-05: After turning, the new "forward" is not taken
+                    # into account, instead it uses the world definition of "forward"
+                    new_yaw_rate = (sum(yaw_inputs) /
+                                    len(yaw_inputs)) * turn_rate
+
+                    if abs(new_yaw_rate) < 10:
+                        new_yaw_rate = 0
+                    logger.debug("Yaw rate: {}".format(new_yaw_rate))
 
                     cf.set_swarm_velocities(
-                        {drone_uri: [new_vert_vel, new_hor_vel, 0]}, 0)
+                        {drone_uri: [new_vert_vel, new_hor_vel, 0]}, new_yaw_rate)
 
             for event in pygame.event.get():
                 # event handler
