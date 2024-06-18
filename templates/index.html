@@ -8,103 +8,43 @@
     <script>
 
         var socket = new WebSocket('ws://' + location.host + '/action');
-        var difficulty = 'Not set';
         socket.addEventListener('open', function (event) {
             console.log("[open] Connection established");
         });
+
         socket.addEventListener('message', function (event) {
             var data = JSON.parse(event.data);
-            if (data.action == 'default') {
-
-                // Store the hexagoncolor
-                hexagon_color = 'BLUE';
-                // Update the difficulty display
-                // Determine the color of the text based on hexagon_color
-                if (hexagon_color === "RED") {
-                    textColor = "red";
-                } else if (hexagon_color === "BLUE") {
-                    textColor = "#0099ff";
-                } else if (hexagon_color === "GREEN") {
-                    textColor = "green";
-                } else {
-                    textColor = "black"; // Default color
-                }
-
-                difficultyDisplay.innerHTML = "NEXT DESTINATION IS THE <span style='color: " + textColor + "'>" + hexagon_color+ " HEXAGON </span>  AT CHECKPOINT " + data.destination_name;
-            }
-            if (data.action == 'score') {
-                document.getElementById('score').textContent = + data.value + " KR";
-            }
-            if (data.action == 'finish') {
-                document.getElementById('surveyText').innerHTML = data.message;
-                document.getElementById('surveyModal').style.display = 'block';
-            }
-            if (data.action == 'failure') {
-                document.getElementById('failureText').innerHTML = data.message;
-                document.getElementById('failureAlert').style.display = 'block';
-
-
-                setTimeout(function () {
-                    failureAlert.style.display = 'none';
-                }, 8000);
-
-            }
-            if (data.action == 'welcome') {
-                document.getElementById('alertText').innerHTML = data.message;
-                document.getElementById('customAlert').style.display = 'block';
-                setTimeout(function () {
-                    customAlert.style.display = 'none';
-                }, 8000);
-            }
-            if (data.action == 'goal') {
-
-                if(data.message.includes("http")){
-                    // Display the survey modal instead of the custom alert
+            switch(data.action){
+                case 'score':
+                    document.getElementById('score').textContent = + data.value + " KR";
+                    break;
+                case 'finish':
                     document.getElementById('surveyText').innerHTML = data.message;
                     document.getElementById('surveyModal').style.display = 'block';
-                } else {
+                    break;
+                case 'failure':
+                    document.getElementById('failureText').innerHTML = data.message;
+                    document.getElementById('failureAlert').style.display = 'block';
+                    setTimeout(function () {
+                        failureAlert.style.display = 'none';
+                    }, 8000);
+                    break;
+                case 'welcome':
                     document.getElementById('alertText').innerHTML = data.message;
                     document.getElementById('customAlert').style.display = 'block';
-
-
+                    setTimeout(function () {
+                        customAlert.style.display = 'none';
+                    }, 8000);
+                    break;
+                case 'goal':
+                    document.getElementById('alertText').innerHTML = data.message;
+                    document.getElementById('customAlert').style.display = 'block';
                     setTimeout(function () {
                         customAlert.style.display = 'none';
                     }, 3000);
-                }
-            }
-            if (data.action == 'select_location') {
-                // Show the modal
-                var modal = document.getElementById("myModal");
-                modal.style.display = "block";
-                // Set the checkpoint name
-                var checkpoint = document.getElementById("checkpoint");
-                checkpoint.textContent = "Next destination is checkpoint " + data.destination_name + ".";
-                // Get the buttons and add click events
-                var btns = document.getElementsByClassName("choice-btn");
-                for (var i = 0; i < btns.length; i++) {
-                    btns[i].onclick = function(e) {
-                        // Send the user's choice back to the server
-                        var choice = e.target.value;
-                        socket.send(JSON.stringify({ action: 'select_location_choice', choice: choice }));
-                        // Store the hexagoncolor
-                        hexagon_color = choice == 'easy' ? 'GREEN' : 'RED';
-                        // Update the difficulty display
-                        // Determine the color of the text based on hexagon_color
-                        if (hexagon_color === "RED") {
-                            textColor = "red";
-                        } else if (hexagon_color === "BLUE") {
-                            textColor = "#0099ff";
-                        } else if (hexagon_color === "GREEN") {
-                            textColor = "green";
-                        } else {
-                            textColor = "black"; // Default color
-                        }
-
-                        difficultyDisplay.innerHTML = "NEXT DESTINATION IS THE <span style='color: " + textColor + "'>" + hexagon_color+ " HEXAGON </span>  AT CHECKPOINT " + data.destination_name;
-                        // Hide the modal
-                        modal.style.display = "none";
-                    }
-                }
+                    break;
+                default:
+                    console.log("unknown action type " + data.action);
             }
 
         });
@@ -139,7 +79,7 @@
                 <span id="difficultyDisplay">Difficulty not set</span>
 
                 <div class="score-container">
-                    <div id="score">0 KR</div>
+                    <div id="score">0</div>
                 </div>
 
 
@@ -158,7 +98,6 @@
         <div class="container">
             <div class="button-container2" id="btn2-container">
                 <button class="btnTO" value="take off" onclick="sendText(this)">Take off</button>
-
             </div>
         </div>
         <div id="myModal" class="modal">
@@ -205,11 +144,6 @@
                     stopwatchDisplay.textContent = 'Time: ' + time;
                     // Add your desired code to execute when the countdown reaches 0:00
                     stopwatchDisplay.classList.add('blinking');
-                    // Reset the score to 0
-                    scoreValue = 0;
-                    // Update the score display
-                    document.getElementById('score').textContent = scoreValue + " KR";
-                    socket.send(JSON.stringify({ action: 'score', score: scoreValue}));
                     return;
                 }
                 // Format the time as MM:SS
