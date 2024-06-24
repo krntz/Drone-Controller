@@ -48,9 +48,8 @@
             }
 
         });
-        function sendText(button) {
-            var text = button.value; // Get the value of the button
-            var message = JSON.stringify({ action: text }); // Convert to JSON
+        function sendText(actionType, direction) {
+            var message = JSON.stringify({ "action": actionType, "direction": direction }); // Convert to JSON
             socket.send(message); // Send the text to the server
             // Get all buttons
             var buttons = document.querySelectorAll("button");
@@ -58,7 +57,7 @@
             buttons.forEach(function(btn) {
                 btn.classList.add("hide");
             });
-            // Remove the 'hide' class after 1 second
+            // Remove the 'hide' class after 2 seconds
             setTimeout(function() {
                 buttons.forEach(function(btn) {
                     btn.classList.remove("hide");
@@ -84,20 +83,20 @@
 
 
             </div>
-            <div><button class="btn" value="forward" onclick="sendText(this)">Forward</button></div>
+            <div><button class="btn" value="forward" onclick="sendText('move', 'forward')">Forward</button></div>
             <div class="button-container">
-                <button class="btn" value="left" onclick="sendText(this)">Left</button>
-                <button class="btn" value="right" onclick="sendText(this)">Right</button>
+                <button class="btn" value="left" onclick="sendText('move', 'left')">Left</button>
+                <button class="btn" value="right" onclick="sendText('move', 'right')">Right</button>
             </div>
             <div>
-                <button class="btn" value="back" onclick="sendText(this)">Back</button>
+                <button class="btn" value="back" onclick="sendText('move', 'back')">Back</button>
             </div>
 
 
         </div>
         <div class="container">
             <div class="button-container2" id="btn2-container">
-                <button class="btnTO" value="take off" onclick="sendText(this)">Take off</button>
+                <button class="btnTO" value="take off" onclick="sendText('move', 'take off')">Take off</button>
             </div>
         </div>
         <div id="myModal" class="modal">
