@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mystyle.css') }}"> 
     </head>
 
-    <script>
+    <script type="text/javascript">
 
         var socket = new WebSocket('ws://' + location.host + '/action');
         socket.addEventListener('open', function (event) {
@@ -44,25 +44,62 @@
                     }, 3000);
                     break;
                 default:
-                    console.log("unknown action type " + data.action);
+                    console.log("recieved unknown action type: " + data.action);
             }
 
         });
-        function sendText(actionType, direction) {
-            var message = JSON.stringify({ "action": actionType, "direction": direction }); // Convert to JSON
-            socket.send(message); // Send the text to the server
+        function hideAllButtons(duration) {
             // Get all buttons
             var buttons = document.querySelectorAll("button");
+
             // Add a 'hide' class to all buttons
             buttons.forEach(function(btn) {
                 btn.classList.add("hide");
             });
-            // Remove the 'hide' class after 2 seconds
+
+            // Remove the 'hide' class after duration
             setTimeout(function() {
                 buttons.forEach(function(btn) {
                     btn.classList.remove("hide");
                 });
-            }, 2000);
+            }, duration);
+        }
+
+        function sendText(actionType, parameter) {
+            var message = "";
+            switch(actionType) {
+                case 'move':
+                    message = JSON.stringify(
+                        { "action": actionType, "direction": parameter }
+                    );
+                    hideAllButtons(2000);
+                    break;
+                case 'take off':
+                    message = JSON.stringify(
+                        { "action": actionType }
+                    );
+
+                    document.getElementById('tolBtn').value = "land";
+                    document.getElementById('tolBtn').innerHTML = "Land";
+
+                    hideAllButtons(2000);
+
+                    break;
+                case 'land':
+                    message = JSON.stringify(
+                        { "action": actionType }
+                    );
+
+                    document.getElementById('tolBtn').value = "Take Off";
+                    document.getElementById('tolBtn').innerHTML = "Take Off";
+
+                    hideAllButtons(2000);
+
+                    break;
+                default:
+                    console.log("trying to send unknown action type: " + actionType); 
+            }
+            socket.send(message); // Send the text to the server
         }
     </script>
     <body>
@@ -73,7 +110,7 @@
 
             <div class="button-container">
                 <div class="stopwatchcontainer">
-                    <span id="stopwatch" >Time: 04:00</span>
+                    <span id="stopwatch" >Time: --:--</span>
                 </div>
                 <span id="difficultyDisplay">Difficulty not set</span>
 
@@ -83,31 +120,22 @@
 
 
             </div>
-            <div><button class="btn" value="forward" onclick="sendText('move', 'forward')">Forward</button></div>
+            <div><button class="btn" onclick="sendText('move', 'forward');">Forward</button></div>
             <div class="button-container">
-                <button class="btn" value="left" onclick="sendText('move', 'left')">Left</button>
-                <button class="btn" value="right" onclick="sendText('move', 'right')">Right</button>
+                <button class="btn" onclick="sendText('move', 'left');">Left</button>
+                <button class="btn" onclick="sendText('move', 'right');">Right</button>
             </div>
             <div>
-                <button class="btn" value="back" onclick="sendText('move', 'back')">Back</button>
+                <button class="btn" onclick="sendText('move', 'back');">Back</button>
             </div>
 
 
         </div>
         <div class="container">
             <div class="button-container2" id="btn2-container">
-                <button class="btnTO" value="take off" onclick="sendText('move', 'take off')">Take off</button>
+                <button class="btnTO" id="tolBtn" value="take off" onclick="sendText(this.value);">Take Off</button>
             </div>
         </div>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <h2 id="checkpoint"></h2>
-                <p>Do you want to fly above the easy (big) or hard (small) hexagon?</p>
-                <button class="choice-btn" value="easy">Easy</button>
-                <button class="choice-btn" value="hard">Hard</button>
-            </div>
-        </div>
-        <!-- The custom alert box -->
         <div id="customAlert" class="custom-alert">
 
             <div class="custom-alert-content">
@@ -132,8 +160,8 @@
         </div>
         <script>
             var stopwatchDisplay = document.getElementById('stopwatch');
-            var minutes = 4;
-            var seconds = 0;
+            var minutes = 1;
+            var seconds = 30;
             // Update the stopwatch display every second
             var countdownInterval = setInterval(function() {
                 if (minutes === 0 && seconds === 0) {
