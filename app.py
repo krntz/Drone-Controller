@@ -1,9 +1,9 @@
 import argparse
-import sys
 import json
 import logging
 import math
 import random
+import sys
 import time
 from operator import truediv
 
@@ -19,9 +19,6 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 sock = Sock(app)
 
-drone_uri = 'radio://0/80/2M/E7E7E7E7E0'
-flight_zone = FlightZone(2.0, 3.0, 1.25, 0.3)
-cf = SimulatedController({drone_uri}, flight_zone, drone_uri)
 
 class Destination:
     def __init__(self, name, easy_location, hard_location, default_location):
@@ -42,10 +39,7 @@ destinations = [
 score = 0  # participant's total score
 
 num_trials = 10
-experiment_trial = 0
 
-CONDITION_FAIL = 0
-CONDITION_CONTROL = 1
 
 def move_home():
     drone_position = cf.positions[drone_uri]
@@ -80,7 +74,6 @@ def echo(sock):
     global score
     global goal_reached
 
-
     sock.send(json.dumps({
         'action': 'welcome',
         'message': 'Welcome! This is your first flight.'
@@ -88,7 +81,11 @@ def echo(sock):
 
     move_distance = 0.10
 
-    condition = CONDITION_CONTROL
+    drone_uri = 'radio://0/80/2M/E7E7E7E7E0'
+    flight_zone = FlightZone(2.0, 3.0, 1.25, 0.3)
+    cf = SimulatedController({drone_uri}, flight_zone, drone_uri)
+
+    experiment_trial = 0
 
     start_time = time.time()
     start_time_action = time.time()
@@ -100,6 +97,12 @@ def echo(sock):
         logger.info(f"{data}")
 
         action = data['action']
+
+        if action == 'failed trial':
+            # if the participant ran out of time, move to next trial
+            experiment_trial += 1
+
+            continue
 
         if cf.swarm_flying:
             if action == 'move':
@@ -125,77 +128,77 @@ def echo(sock):
                                   None,
                                   2.,
                                   True)
-                elif direction == 'land':
-                    # 1. land drone
-                    # 2. check if the drone is inside a point
-                    #    a. if drone is inside the closest point, increase score
-                    #    b. if drone is not inside closest point
-                    #      A. decrease score
-                    #      B. find which point it's closest to
-                    # 3. send score update to front end
-                    # 4. show message on front end
-                    # 5. move drone back to home
-                    # 6. start next trial
+            elif action == 'land':
+                # 1. land drone
+                # 2. check if the drone is inside a point
+                #    a. if drone is inside the closest point, increase score
+                #    b. if drone is not inside closest point
+                #      A. decrease score
+                #      B. find which point it's closest to
+                # 3. send score update to front end
+                # 4. show message on front end
+                # 5. move drone back to home
+                # 6. start next trial
+
+                cf.swarm_land()
+
+                if is_close_to_point():
+                    sock.send(json.dumps(
+                        {'action': 'score', 'value': score}))
+
+                    if goal_reached:
+                        time.sleep(2)
+
+                        if experiment_trial == 0:
+                            sock.send(json.dumps({
+                                'action': 'goal',
+                                'message': 'You have completed the first part of this experiment.<br/> You have earned <strong>' +
+                                str(score) +
+                                '</strong> SEK in this flight session! You can now do the first part of the survey. When you are done with the first part of the survey, the supervisor will change your drone.'
+                            }))
+
+                            print('...landing, please wait')
+                            move_home()
+                            cf.swarm_land()
+
+                            break
+                        elif experiment_trial == num_trials - 1:
+                            sock.send(json.dumps({
+                                'action': 'finish',
+                                'message': 'Last part of experiment is now finished. You have earned <strong>' +
+                                str(score) +
+                                '</strong> SEK this flight session! Please finish the survey.'
+                            }))
+
+                            print('...landing, please wait')
+                            move_home()
+                            cf.swarm_land()
+
+                            break
+                        else:
+                            break
+
+                    if destination_index == 1:
+                        sock.send(json.dumps({
+                            'action': 'goal',
+                            'message': 'Destination reached! First flight finished! ... Going back to home base.'
+                        }))
+
+                        time.sleep(3)
+                        move_home()
+                    else:
+                        sock.send(json.dumps({
+                            'action': 'goal',
+                            'message': 'Destination reached! ... Going back to home base. '
+                        }))
+
+                        time.sleep(3)
+                        move_home()
 
                     cf.swarm_land()
+                    start_time = time.time()
 
-                    if is_close_to_point():
-                        sock.send(json.dumps({'action': 'score', 'value': score}))
-
-                        if goal_reached:
-                            time.sleep(2)
-
-                            if experiment_trial == 0:
-                                sock.send(json.dumps({
-                                    'action': 'goal',
-                                    'message': 'You have completed the first part of this experiment.<br/> You have earned <strong>' +
-                                    str(score) +
-                                    '</strong> SEK in this flight session! You can now do the first part of the survey. When you are done with the first part of the survey, the supervisor will change your drone.'
-                                }))
-
-                                print('...landing, please wait')
-                                move_home()
-                                cf.swarm_land()
-
-                                break
-                            elif experiment_trial == num_trials - 1:
-                                sock.send(json.dumps({
-                                    'action': 'finish',
-                                    'message': 'Last part of experiment is now finished. You have earned <strong>' +
-                                    str(score) +
-                                    '</strong> SEK this flight session! Please finish the survey.'
-                                }))
-
-                                print('...landing, please wait')
-                                move_home()
-                                cf.swarm_land()
-
-                                break
-                            else:
-                                break
-
-                        if destination_index == 1:
-                            sock.send(json.dumps({
-                                'action': 'goal',
-                                'message': 'Destination reached! First flight finished! ... Going back to home base.'
-                            }))
-
-                            time.sleep(3)
-                            move_home()
-                        else:
-                            sock.send(json.dumps({
-                                'action': 'goal',
-                                'message': 'Destination reached! ... Going back to home base. '
-                            }))
-
-                            time.sleep(3)
-                            move_home()
-
-                        cf.swarm_land()
-                        start_time = time.time()
-
-                        continue
-
+                    continue
 
         else:
             if action == 'move':
@@ -205,7 +208,9 @@ def echo(sock):
                     print("taking off")
                     cf.swarm_take_off()
 
-    sock.send(json.dumps({'action': 'finish', 'message': 'Destination reached! Well done! Going back to homebase.'}))
+    sock.send(json.dumps(
+        {'action': 'finish', 'message': 'Destination reached! Well done! Going back to homebase.'}))
+
 
 if __name__ == '__main__':
 
@@ -230,7 +235,6 @@ if __name__ == '__main__':
                         help='File into which to write the log')
 
     args = parser.parse_args()
-
 
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
                         datefmt='%H:%M:%S',

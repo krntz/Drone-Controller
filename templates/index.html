@@ -16,7 +16,7 @@
             var data = JSON.parse(event.data);
             switch(data.action){
                 case 'score':
-                    document.getElementById('score').textContent = + data.value + " KR";
+                    document.getElementById('score').textContent = + data.value;
                     break;
                 case 'finish':
                     document.getElementById('surveyText').innerHTML = data.message;
@@ -65,14 +65,16 @@
             }, duration);
         }
 
-        function sendText(actionType, parameter) {
+        function sendMessage(actionType, parameter) {
             var message = "";
             switch(actionType) {
                 case 'move':
                     message = JSON.stringify(
                         { "action": actionType, "direction": parameter }
                     );
+
                     hideAllButtons(2000);
+
                     break;
                 case 'take off':
                     message = JSON.stringify(
@@ -96,10 +98,18 @@
                     hideAllButtons(2000);
 
                     break;
+                case 'failed trial':
+                    message = JSON.stringify(
+                        { "action": actionType }
+                    );
+
+                    hideAllButtons(2000);
+
+                    break;
                 default:
                     console.log("trying to send unknown action type: " + actionType); 
             }
-            socket.send(message); // Send the text to the server
+            socket.send(message); // Send the message to the server
         }
     </script>
     <body>
@@ -112,28 +122,22 @@
                 <div class="stopwatchcontainer">
                     <span id="stopwatch" >Time: --:--</span>
                 </div>
-                <span id="difficultyDisplay">Difficulty not set</span>
-
                 <div class="score-container">
-                    <div id="score">0</div>
+                    <div id="score">--</div>
                 </div>
-
-
             </div>
-            <div><button class="btn" onclick="sendText('move', 'forward');">Forward</button></div>
+            <div><button class="btn" onclick="sendMessage('move', 'forward');">Forward</button></div>
             <div class="button-container">
-                <button class="btn" onclick="sendText('move', 'left');">Left</button>
-                <button class="btn" onclick="sendText('move', 'right');">Right</button>
+                <button class="btn" onclick="sendMessage('move', 'left');">Left</button>
+                <button class="btn" onclick="sendMessage('move', 'right');">Right</button>
             </div>
             <div>
-                <button class="btn" onclick="sendText('move', 'back');">Back</button>
+                <button class="btn" onclick="sendMessage('move', 'back');">Back</button>
             </div>
-
-
         </div>
         <div class="container">
             <div class="button-container2" id="btn2-container">
-                <button class="btnTO" id="tolBtn" value="take off" onclick="sendText(this.value);">Take Off</button>
+                <button class="btnTO" id="tolBtn" value="take off" onclick="sendMessage(this.value);">Take Off</button>
             </div>
         </div>
         <div id="customAlert" class="custom-alert">
@@ -141,7 +145,6 @@
             <div class="custom-alert-content">
                 <p id="alertText"></p>
             </div>
-
         </div>
         <!-- The custom alert box -->
         <div id="failureAlert" class="failure-alert">
@@ -171,6 +174,9 @@
                     stopwatchDisplay.textContent = 'Time: ' + time;
                     // Add your desired code to execute when the countdown reaches 0:00
                     stopwatchDisplay.classList.add('blinking');
+
+                    sendMessage("failed trial"); // let the server know the trial failed
+
                     return;
                 }
                 // Format the time as MM:SS
@@ -191,6 +197,4 @@
             }
         </script>
     </body>
-
-
 </html>
